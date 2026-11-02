@@ -13,6 +13,14 @@ nav.querySelectorAll('a').forEach((a) =>
   })
 );
 
+// Clic sur le logo : retour en haut du site
+document.querySelector('.logo').addEventListener('click', (e) => {
+  e.preventDefault();
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  history.replaceState(null, '', location.pathname + location.search);
+});
+
 // Années d'expérience et année courante calculées automatiquement
 const now = new Date().getFullYear();
 document.querySelectorAll('[data-since]').forEach((el) => { el.textContent = now - Number(el.dataset.since); });

@@ -89,6 +89,7 @@ Services ▾   Réalisations   Entreprise   Carrières   Contact   [Demander une
    Sur mobile, masquer « partout au Canada » et le courriel.
 2. **En-tête** (anthracite, 72 px) : logo à gauche, menu et bouton jaune « Demander une soumission » à droite.
 3. Réglage : *En-tête → Effets de défilement → Figer* (l'en-tête reste visible au défilement).
+   **Logo :** *Lien → Haut/bas de page → Haut de page* : un clic sur le logo ramène en haut du site (sur les autres pages, lier plutôt à la page d'accueil).
 4. Tous les numéros de téléphone : *Lien → Numéro de téléphone* (`tel:`), pour qu'on puisse appeler en un clic sur cellulaire.
 
 ### Bouton d'appel flottant (mobile seulement)

@@ -365,7 +365,7 @@ img.ph-tall { width: 100%; height: 480px; object-fit: cover; background: linear-
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
 
-  <div class="topbar">
+  <div class="topbar" id="top">
     <div class="wrap topbar-inner">
       <p><span class="pulse" aria-hidden="true"></span><strong>Urgence 24/7</strong><span class="hide-sm">&nbsp;partout au Canada</span></p>
       <div class="topbar-links">
@@ -376,7 +376,7 @@ img.ph-tall { width: 100%; height: 480px; object-fit: cover; background: linear-
     </div>
   </div>
 
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="wrap header-inner">
       <a href="#top" class="logo" aria-label="Pro-Métal Plus, accueil">
         <span class="logo-plate"><img src="https://static.wixstatic.com/media/ba2cd3_1c61104547f84e889fcced7e7ce019eb~mv2.png/v1/fit/w_420,h_114,q_90,enc_auto/ba2cd3_1c61104547f84e889fcced7e7ce019eb~mv2.png" alt="Pro-Métal Plus" width="210" height="57"></span>
@@ -793,6 +793,14 @@ nav.querySelectorAll('a').forEach((a) =>
     nav.classList.remove('is-open');
   })
 );
+
+// Clic sur le logo : retour en haut du site
+document.querySelector('.logo').addEventListener('click', (e) => {
+  e.preventDefault();
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  history.replaceState(null, '', location.pathname + location.search);
+});
 
 // Années d'expérience et année courante calculées automatiquement
 const now = new Date().getFullYear();
