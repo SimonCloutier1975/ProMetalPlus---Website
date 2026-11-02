@@ -794,12 +794,13 @@ nav.querySelectorAll('a').forEach((a) =>
   })
 );
 
-// Clic sur le logo : retour en haut du site
+// Clic sur le logo : retour immédiat en haut du site
 document.querySelector('.logo').addEventListener('click', (e) => {
   e.preventDefault();
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
-  history.replaceState(null, '', location.pathname + location.search);
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  try { history.replaceState(null, '', location.pathname + location.search); } catch (_) {}
 });
 
 // Années d'expérience et année courante calculées automatiquement
