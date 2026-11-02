@@ -2,6 +2,8 @@
 
 Maquette fonctionnelle (HTML/CSS/JS statique, sans dépendances) proposant une refonte de
 https://www.prometalplus.com/. Ouvrir `index.html` dans un navigateur pour la consulter.
+`maquette-complete.html` est la version autonome (un seul fichier) ; la regénérer après chaque modification avec
+`python3 outils/generer-maquette-autonome.py`.
 Tout le contenu provient du site actuel (analysé le 2 novembre 2026).
 
 ---
@@ -94,7 +96,7 @@ Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 - [x] Numéro principal confirmé : 418-286-4949 (utilisé partout, y compris pour les postes de la direction)
 - [ ] Vérifier que les postes 105 à 110 fonctionnent bien sur le 4949
 - [ ] Confirmer l'effectif à afficher (110+)
-- [ ] Logos de certification : la maquette reprend les images ISO 9001 et ASME du site actuel ; logo CWB « Certified CSA W47.1 / W47.2 » fourni (`assets/cwb-certified.png`) ; RBQ en texte. Avant la mise en ligne, demander les fichiers officiels et les règles d'utilisation au registraire ISO, au CWB et à l'ASME (le logo d'ISO lui-même est interdit aux entreprises certifiées ; il faut celui du registraire). RBQ : texte seulement.
+- [ ] Logos de certification : la maquette reprend les images ISO 9001 et ASME du site actuel ; logo CWB « Certified CSA W47.1 / W47.2 » fourni (`assets/cwb-certified.png`) ; logo RBQ fourni (`assets/rbq.png`). Avant la mise en ligne, demander les fichiers officiels et les règles d'utilisation au registraire ISO, au CWB et à l'ASME (le logo d'ISO lui-même est interdit aux entreprises certifiées ; il faut celui du registraire). RBQ : texte seulement.
 - [ ] URL exacte de la page LinkedIn
 - [ ] Brancher le formulaire (Formspree, Netlify Forms, ou formulaire Wix si le site reste sur Wix)
 - [ ] PDF : certificats, descriptif technique des filets, procédures de soumission
