@@ -34,20 +34,7 @@ actuels se copient facilement : le travail porte surtout sur la mise en page.
 
 Dans *Design du site → Couleurs* et *Thèmes de texte* : tout le reste du site héritera de ces réglages.
 
-### Couleurs
-| Rôle | Code | Usage |
-|---|---|---|
-| Vert Pro-Métal Plus | `#0F5C4F` | Barre du haut, liens, titres de sections, bloc Carrières |
-| Vert secondaire | `#3F7652` | Logo, survols |
-| Jaune sécurité | `#FFCB05` | **Boutons d'action uniquement** et chiffres clés |
-| Anthracite | `#141B1D` | En-tête, hero, pied de page, texte |
-| Ardoise | `#1B2427` | Section Urgence, bandeau Certifications |
-| Gris clair | `#EEF1F0` | Fonds de sections alternées, formulaire |
-| Gris texte | `#4B585C` | Paragraphes secondaires |
-
-### Variante « couleurs du logo » (`maquette-logo.html`)
-Palette tirée du logo (vert, rouge, blanc), à utiliser à la place de la précédente si elle est retenue :
-
+### Couleurs (palette du logo)
 | Rôle | Code | Usage |
 |---|---|---|
 | Vert du logo | `#1A6B5C` | Barre du haut, titres de sections, liens, pastilles |
@@ -57,6 +44,9 @@ Palette tirée du logo (vert, rouge, blanc), à utiliser à la place de la préc
 | Vert très foncé | `#0B231F` | Pied de page |
 | Menthe | `#9ED9C6` | Surtitres sur fond foncé |
 | Blanc | `#FFFFFF` | En-tête (le logo s'y pose directement, sans plaque) |
+| Gris clair | `#EEF1F0` | Fonds de sections alternées, formulaires |
+| Gris texte | `#4B585C` | Paragraphes secondaires |
+| Encre | `#14201D` | Texte principal |
 
 Signature visuelle : une barre rouge inclinée (6 px × 64 px, inclinaison de 20°) sous chaque grand titre, rappel du trait rouge du logo.
 Contraste : texte blanc sur `#D3202A` conforme WCAG AA ; ne pas utiliser `#E3202A` (le rouge exact du logo) pour des boutons avec du texte blanc.
@@ -75,7 +65,7 @@ Contraste : texte blanc sur `#D3202A` conforme WCAG AA ; ne pas utiliser `#E3202
 | Surtitre | Inter 700, majuscules, espacement 0,16 em | 12 px, vert |
 | Paragraphe | Inter 400 | 16 px, interligne 1,65 |
 
-**Boutons** (*Design du site → Boutons*) : fond jaune `#FFCB05`, texte anthracite, Inter 700, coins arrondis 6 px.
+**Boutons** (*Design du site → Boutons*) : fond rouge `#D3202A`, texte blanc, Inter 700, coins arrondis 6 px.
 Bouton secondaire : contour blanc, fond transparent.
 
 **Règle simple :** aucun texte centré-justifié, aucun titre rouge. Alignez à gauche.
@@ -103,13 +93,13 @@ Services ▾   Réalisations   Entreprise   Carrières   Contact   [Demander une
 ### En-tête
 1. **Barre d'urgence** (bande verte, 38 px) : « ● Urgence 24/7 partout au Canada » à gauche · `418-286-4949` · `info@prometalplus.com` · `EN` à droite.
    Sur mobile, masquer « partout au Canada » et le courriel.
-2. **En-tête** (anthracite, 72 px) : logo à gauche, menu et bouton jaune « Demander une soumission » à droite.
+2. **En-tête** (blanc, 72 px) : logo à gauche, menu et bouton rouge « Demander une soumission » à droite.
 3. Réglage : *En-tête → Effets de défilement → Figer* (l'en-tête reste visible au défilement).
    **Logo :** *Lien → Haut/bas de page → Haut de page* : un clic sur le logo ramène en haut du site (sur les autres pages, lier plutôt à la page d'accueil).
 4. Tous les numéros de téléphone : *Lien → Numéro de téléphone* (`tel:`), pour qu'on puisse appeler en un clic sur cellulaire.
 
 ### Bouton d'appel flottant (mobile seulement)
-- Ajouter un bouton rond jaune avec une icône de téléphone, lien `418-286-4949`.
+- Ajouter un bouton rond rouge avec une icône de téléphone blanche, lien `418-286-4949`.
 - *Épingler à l'écran*, en bas à droite (marge de 16 px).
 - Le masquer sur les points de rupture ordinateur et tablette.
 - (Éditeur classique : utiliser la *Barre d'actions rapides* mobile avec l'action « Appeler ».)
@@ -122,15 +112,15 @@ Chaque section de la maquette correspond à une **section Wix** (pleine largeur,
 
 | # | Section | Comment la monter dans Wix |
 |---|---|---|
-| 1 | **Hero** | Section anthracite avec **une seule photo fixe** (usine ou chantier) et un calque sombre à 70 %. Surtitre jaune, H1, paragraphe, 2 boutons. **Supprimer le diaporama actuel** : il ralentit la page et cache le message. |
-| 2 | **Chiffres clés** | Bande de 4 colonnes (grille). Chiffres en Barlow 40 px jaune, libellé gris. Fines lignes verticales entre les colonnes. |
-| 3 | **Certifications** | Bande ardoise. Texte « CERTIFIÉ ET ACCRÉDITÉ », puis ISO 9001 · CSA W47.1 Division 1 · CSA W47.2 · CWB · ASME · RBQ. Chaque nom peut pointer vers le PDF du certificat. |
+| 1 | **Hero** | Section vert profond avec **une seule photo fixe** (usine ou chantier) et un calque vert foncé à 75 %. Surtitre menthe, H1 (dernier mot en rouge vif), paragraphe, 2 boutons. **Supprimer le diaporama actuel** : il ralentit la page et cache le message. |
+| 2 | **Chiffres clés** | Bande de 4 colonnes (grille). Chiffres en Barlow 40 px blanc avec un petit trait rouge incliné dessous, libellé gris. Fines lignes verticales entre les colonnes. |
+| 3 | **Certifications** | Bande vert profond. Texte « CERTIFIÉ ET ACCRÉDITÉ », puis les 4 logos (ISO 9001, CWB, ASME, RBQ) sur des pastilles blanches, chacun avec son libellé. Chaque nom peut pointer vers le PDF du certificat. |
 | 4 | **Services** | **Répéteur relié à la collection CMS « Services »** (voir section 4). 4 colonnes sur ordinateur, 2 sur tablette, 1 sur mobile. Carte blanche, bordure grise, icône dans un carré vert pâle, 2 spécifications en bas. Survol : bordure verte et ombre. |
-| 5 | **Urgence 24/7** | Section ardoise en 2 colonnes : à gauche, titre et bouton « Appeler le 418-286-4949 » ; à droite, 2 cartes (bordure gauche jaune) : Valero « ≤ 3 semaines », Alcoa « Réponse immédiate ». |
+| 5 | **Urgence 24/7** | Section vert profond en 2 colonnes : à gauche, titre et bouton « Appeler le 418-286-4949 » ; à droite, 2 cartes (bordure gauche rouge) : Valero « ≤ 3 semaines », Alcoa « Réponse immédiate ». |
 | 6 | **Expertise par métal** | Élément **Onglets** (*Ajouter → Interactif → Onglets*) : Acier et inox / Aluminium / Cuivre. Dans chaque onglet, le texte et les procédés en pastilles vertes (FCAW, GMAW, SAW…). |
 | 7 | **Réalisations** | Voir section 5. |
 | 8 | **Clients** | **Pro Gallery** en grille de 5 colonnes avec les logos actuels. *Paramètres → Survol : couleur* ; logos en niveaux de gris (CSS, section 9, ou images converties en gris avant le téléversement). Remplir le **texte alternatif** de chaque logo avec le nom du client. |
-| 9 | **Entreprise** | 2 colonnes : photo (équipe ou usine) avec étiquette jaune « 1991 » ; à droite, mission et 5 valeurs en grille 2 × 3. |
+| 9 | **Entreprise** | 2 colonnes : photo (équipe ou usine) avec étiquette rouge « 1991 » ; à droite, mission et 5 valeurs en grille 2 × 3. |
 | 10 | **Carrières et main-d'œuvre** | Section verte, 2 boîtes côte à côte. Carrières : « Voir les postes ouverts » (lien Jobillico) et « Envoyer mon CV » (vers le formulaire). Main-d'œuvre : « Réserver une équipe ». |
 | 11 | **Contact** | 2 colonnes : coordonnées et équipe de direction dans un **accordéon** (*Texte repliable* ou *Accordéon*) ; formulaire à droite (section 6). |
 | 12 | **Pied de page** | 4 colonnes : logo et adresse · Services · Entreprise · « Urgence 24/7 » avec le numéro en grand. Retirer « Création de Pages Jaunes » si le contrat le permet. |

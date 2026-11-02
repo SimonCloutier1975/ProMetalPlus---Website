@@ -87,7 +87,7 @@ Tout le contenu provient du site actuel (analysé le 2 novembre 2026).
 Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 
 ### Direction visuelle
-- **Couleurs** : le vert Pro-Métal Plus actuel (#0F5C4F) est conservé, avec un **jaune sécurité** (#FFCB05, déjà présent dans la palette du site) pour les actions, sur fond anthracite.
+- **Couleurs du logo** : vert (#1A6B5C) comme couleur principale, **rouge** (#D3202A) pour les actions, en-tête blanc, sections foncées en vert profond (#0F2E28). Une barre rouge inclinée sous les titres rappelle le trait rouge du logo.
 - **Typographie** : Barlow Condensed (titres industriels) + Inter (texte lisible), alignée à gauche.
 - **Mobile d'abord** : bouton d'appel flottant, menu hamburger, cibles tactiles larges.
 - **Accessibilité** : contrastes élevés, lien d'évitement, onglets ARIA, `prefers-reduced-motion`.

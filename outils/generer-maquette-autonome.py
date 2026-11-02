@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Génère les maquettes autonomes (un seul fichier chacune, CSS/JS/images locales intégrés) :
-  maquette-complete.html / maquette-complete-en.html   palette actuelle (vert, anthracite, jaune)
-  maquette-logo.html     / maquette-logo-en.html       palette du logo (vert, rouge, blanc)
+  maquette-complete.html     (français)
+  maquette-complete-en.html  (anglais)
 La version anglaise (index-en.html) est regénérée au préalable.
 
 Usage : python3 outils/generer-maquette-autonome.py   (depuis la racine du dépôt)
@@ -30,8 +30,6 @@ VARIANTES = [
     # (source, fichier généré, classe de thème)
     ("index.html", "maquette-complete.html", ""),
     ("index-en.html", "maquette-complete-en.html", ""),
-    ("index.html", "maquette-logo.html", "theme-logo"),
-    ("index-en.html", "maquette-logo-en.html", "theme-logo"),
 ]
 
 for source, cible, theme in VARIANTES:
