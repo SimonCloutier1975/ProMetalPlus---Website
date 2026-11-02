@@ -227,6 +227,7 @@ TR = {
     "Offres d'emploi": "Job openings",
     "Nos postes ouverts sont publiés sur Jobillico.": "Our open positions are posted on Jobillico.",
     "Voir nos offres sur Jobillico ↗": "View our openings on Jobillico ↗",
+    "(s'ouvre dans un nouvel onglet)": "(opens in a new tab)",
     "Phase 2 : les offres s'afficheront directement ici (intégration Jobillico).": "Phase 2: openings will be displayed directly here (Jobillico integration).",
     "Envoyez-nous votre CV": "Send us your résumé",
     "Prénom *": "First name *",
