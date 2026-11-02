@@ -144,6 +144,7 @@ Créer une collection *CMS → Nouvelle collection* nommée **Services** :
 - La carte de l'accueil et la page de détail se mettent à jour au même endroit.
 - Une seule **page dynamique** « Service » remplace les 8 pages actuelles, avec une mise en page uniforme.
 - Ajouter un service plus tard = ajouter une ligne, sans toucher au design.
+- **Clic sur une carte de service :** dans la maquette, il ouvre une fiche détaillée. Dans Wix, la carte mène à la page dynamique du service (recommandé pour le référencement) ; une *lightbox* est possible, mais Google indexe mal son contenu.
 
 > **Attention aux adresses :** avec une page dynamique, l'URL devient `/services/decoupe-laser`.
 > Il faudra des redirections 301 (section 7). Si vous préférez garder exactement les adresses actuelles,
@@ -156,7 +157,8 @@ Créer une collection *CMS → Nouvelle collection* nommée **Services** :
 **Option sans code (recommandée) :**
 - Élément **Onglets** : Tout / Acier et inox / Aluminium / Filets et gardes / Tuyauterie / Peinture.
 - Une **Pro Gallery** (grille ou maçonnerie) par onglet, avec les photos actuelles.
-- Galerie : *Clic → Agrandir* (visionneuse plein écran).
+- Galerie : *Paramètres → Au clic → Ouvrir dans une visionneuse plein écran (Expand)*, avec flèches et balayage sur mobile, comme dans la maquette.
+- Afficher d'abord une sélection (12 photos), puis un bouton « Voir toutes les réalisations » (*Charger plus* dans Pro Gallery).
 
 **Pour chaque photo, remplir :**
 - **Titre** : « Réservoir sous pression – ASME VIII » (pas « Acier1 »).
@@ -179,7 +181,7 @@ Remplacer les trois formulaires actuels par **un seul**, réutilisé sur Contact
 | Courriel | Courriel | Oui |
 | Téléphone | Téléphone | Oui |
 | Votre projet | Texte long | Oui |
-| Fichiers | **Téléversement** (PDF, DWG, DXF, STEP, images) | Non |
+| Fichiers | **Téléversement** (PDF, DWG, DXF, STEP, images), plusieurs fichiers permis, style « zone de dépôt » | Non |
 | Case à cocher | « J'ai pris connaissance des procédures de soumission » (lien PDF) : afficher seulement si le type est « Découpe laser et pliage » (*Règles conditionnelles*) | Selon le type |
 
 - Sous le bouton, en petit : « Pour une urgence, appelez le 418-286-4949 (24/7) ».

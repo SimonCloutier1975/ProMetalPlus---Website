@@ -52,11 +52,143 @@ chips.forEach((chip) =>
   })
 );
 
+// Toutes les réalisations
+const showAll = document.getElementById('show-all');
+showAll.addEventListener('click', () => {
+  const open = showAll.getAttribute('aria-expanded') === 'true';
+  gallery.querySelectorAll('.tile.extra').forEach((t) => { t.hidden = open; });
+  showAll.setAttribute('aria-expanded', String(!open));
+  showAll.textContent = open ? showAll.dataset.label : 'Afficher moins de photos';
+  if (open) document.getElementById('realisations').scrollIntoView({ behavior: 'instant' });
+});
+showAll.dataset.label = showAll.textContent;
+
+// Visionneuse plein écran
+const lb = document.getElementById('lightbox');
+const lbImg = lb.querySelector('.lb-img');
+const lbCap = lb.querySelector('.lb-caption');
+const lbCount = lb.querySelector('.lb-count');
+let lbItems = [];
+let lbIndex = 0;
+const visibleTiles = () => [...gallery.querySelectorAll('.tile[data-full]')].filter((t) => !t.hidden && !t.classList.contains('is-hidden'));
+const showPhoto = (i) => {
+  lbIndex = (i + lbItems.length) % lbItems.length;
+  const t = lbItems[lbIndex];
+  const strong = t.querySelector('figcaption strong');
+  const span = t.querySelector('figcaption span');
+  lbImg.classList.add('is-loading');
+  lbImg.onload = () => lbImg.classList.remove('is-loading');
+  lbImg.src = t.dataset.full;
+  lbImg.alt = t.querySelector('img').alt;
+  lbCap.textContent = (strong ? strong.textContent : '') + (span && strong && span.textContent !== strong.textContent ? ' · ' + span.textContent : '');
+  lbCount.textContent = (lbIndex + 1) + ' / ' + lbItems.length;
+  [lbItems[lbIndex + 1], lbItems[lbIndex - 1]].forEach((n) => { if (n) new Image().src = n.dataset.full; });
+};
+const openLightbox = (tile) => {
+  lbItems = visibleTiles();
+  showPhoto(lbItems.indexOf(tile));
+  if (typeof lb.showModal === 'function') lb.showModal(); else lb.setAttribute('open', '');
+  document.body.classList.add('sheet-open');
+};
+const closeLightbox = () => (typeof lb.close === 'function' ? lb.close() : lb.removeAttribute('open'));
+gallery.addEventListener('click', (e) => { const t = e.target.closest('.tile[data-full]'); if (t) openLightbox(t); });
+gallery.addEventListener('keydown', (e) => {
+  const t = e.target.closest('.tile[data-full]');
+  if (t && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openLightbox(t); }
+});
+lb.querySelector('.lb-prev').addEventListener('click', () => showPhoto(lbIndex - 1));
+lb.querySelector('.lb-next').addEventListener('click', () => showPhoto(lbIndex + 1));
+lb.querySelector('.lb-close').addEventListener('click', closeLightbox);
+lb.addEventListener('click', (e) => { if (e.target === lb || e.target.classList.contains('lb-figure')) closeLightbox(); });
+lb.addEventListener('close', () => document.body.classList.remove('sheet-open'));
+lb.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') showPhoto(lbIndex - 1);
+  if (e.key === 'ArrowRight') showPhoto(lbIndex + 1);
+});
+let touchX = null;
+lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+lb.addEventListener('touchend', (e) => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 50) showPhoto(lbIndex + (dx < 0 ? 1 : -1));
+  touchX = null;
+});
+
 // Boutons qui présélectionnent le type de demande
 const typeSelect = document.getElementById('type');
 document.querySelectorAll('[data-type]').forEach((btn) =>
   btn.addEventListener('click', () => { typeSelect.value = btn.dataset.type; })
 );
+
+// Fiches de services (fenêtres de détail)
+const openSheet = (slug) => {
+  const d = document.getElementById('service-' + slug);
+  if (!d || d.open) return;
+  document.querySelectorAll('dialog.sheet[open]').forEach((o) => o.close());
+  if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
+  d.scrollTop = 0;
+  document.body.classList.add('sheet-open');
+  try { history.replaceState(null, '', '#service-' + slug); } catch (_) {}
+};
+document.querySelectorAll('[data-service]').forEach((el) =>
+  el.addEventListener('click', (e) => { e.preventDefault(); openSheet(el.dataset.service); })
+);
+document.querySelectorAll('dialog.sheet').forEach((d) => {
+  const close = () => (typeof d.close === 'function' ? d.close() : d.removeAttribute('open'));
+  d.querySelector('.sheet-close').addEventListener('click', close);
+  d.addEventListener('click', (e) => { if (e.target === d) close(); }); // clic sur le fond
+  d.addEventListener('close', () => {
+    document.body.classList.remove('sheet-open');
+    if (location.hash === '#' + d.id) { try { history.replaceState(null, '', location.pathname + location.search); } catch (_) {} }
+  });
+  // « Demander une soumission » : fermer la fiche puis aller au formulaire
+  d.querySelector('a[href="#contact"]').addEventListener('click', (e) => {
+    e.preventDefault();
+    close();
+    document.getElementById('contact').scrollIntoView({ behavior: 'instant', block: 'start' });
+    setTimeout(() => document.querySelector('#quote-form [name="nom"]').focus({ preventScroll: true }), 50);
+  });
+});
+if (location.hash.startsWith('#service-')) openSheet(location.hash.slice(9));
+
+// Zone de dépôt de fichiers
+const fileInput = document.getElementById('fichiers');
+const dropzone = document.querySelector('.dropzone');
+const fileList = document.querySelector('.file-list');
+const MAX = 15 * 1024 * 1024;
+const fmt = (b) => (b < 1024 * 1024 ? Math.max(1, Math.round(b / 1024)) + ' Ko' : (b / 1024 / 1024).toFixed(1).replace('.', ',') + ' Mo');
+let files = [];
+const syncInput = () => {
+  try { const dt = new DataTransfer(); files.forEach((f) => dt.items.add(f)); fileInput.files = dt.files; } catch (_) {}
+};
+const renderFiles = () => {
+  fileList.innerHTML = '';
+  const total = files.reduce((n, f) => n + f.size, 0);
+  files.forEach((f, i) => {
+    const li = document.createElement('li');
+    const ext = (f.name.split('.').pop() || '').slice(0, 4);
+    li.innerHTML = '<span class="file-ext"></span><span class="file-name"></span><span class="file-size"></span><button type="button" class="file-remove" aria-label="Retirer le fichier">×</button>';
+    li.querySelector('.file-ext').textContent = ext;
+    li.querySelector('.file-name').textContent = f.name;
+    li.querySelector('.file-size').textContent = fmt(f.size);
+    li.querySelector('.file-remove').addEventListener('click', () => { files.splice(i, 1); syncInput(); renderFiles(); });
+    fileList.appendChild(li);
+  });
+  if (total > MAX) {
+    const li = document.createElement('li');
+    li.className = 'file-error';
+    li.textContent = 'Total de ' + fmt(total) + ' : la limite est de 15 Mo. Retirez un fichier ou écrivez-nous à info@prometalplus.com.';
+    fileList.appendChild(li);
+  }
+};
+const addFiles = (list) => {
+  [...list].forEach((f) => { if (!files.some((g) => g.name === f.name && g.size === f.size)) files.push(f); });
+  syncInput(); renderFiles();
+};
+fileInput.addEventListener('change', () => addFiles(fileInput.files));
+['dragenter', 'dragover'].forEach((ev) => dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.add('is-over'); }));
+['dragleave', 'drop'].forEach((ev) => dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.remove('is-over'); }));
+dropzone.addEventListener('drop', (e) => { if (e.dataTransfer && e.dataTransfer.files.length) addFiles(e.dataTransfer.files); });
 
 // Apparition au défilement
 if ('IntersectionObserver' in window) {
@@ -82,7 +214,13 @@ form.addEventListener('submit', (e) => {
     form.reportValidity();
     return;
   }
+  if (files.reduce((n, f) => n + f.size, 0) > MAX) {
+    status.textContent = 'Les fichiers dépassent 15 Mo au total.';
+    status.className = 'form-status err';
+    return;
+  }
   status.textContent = 'Merci! Votre demande a bien été reçue. Nous vous répondrons sous peu.';
   status.className = 'form-status ok';
   form.reset();
+  files = []; renderFiles();
 });
