@@ -94,7 +94,7 @@ Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 - [x] Numéro principal confirmé : 418-286-4949 (utilisé partout, y compris pour les postes de la direction)
 - [ ] Vérifier que les postes 105 à 110 fonctionnent bien sur le 4949
 - [ ] Confirmer l'effectif à afficher (110+)
-- [ ] Logos de certification : la maquette reprend les images ISO 9001, ASME et CWB déjà présentes sur le site actuel. Avant la mise en ligne, demander les fichiers officiels et les règles d'utilisation au registraire ISO, au CWB et à l'ASME (le logo d'ISO lui-même est interdit aux entreprises certifiées ; il faut celui du registraire). RBQ : texte seulement.
+- [ ] Logos de certification : la maquette reprend les images ISO 9001 et ASME du site actuel ; CWB et RBQ sont en texte (l'image « CWB » du site actuel est en fait une bande décorative). Fournir le vrai logo CWB. Avant la mise en ligne, demander les fichiers officiels et les règles d'utilisation au registraire ISO, au CWB et à l'ASME (le logo d'ISO lui-même est interdit aux entreprises certifiées ; il faut celui du registraire). RBQ : texte seulement.
 - [ ] URL exacte de la page LinkedIn
 - [ ] Brancher le formulaire (Formspree, Netlify Forms, ou formulaire Wix si le site reste sur Wix)
 - [ ] PDF : certificats, descriptif technique des filets, procédures de soumission
