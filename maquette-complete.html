@@ -422,6 +422,25 @@ body.sheet-open { overflow: hidden; }
   .tile[data-full]::after { opacity: 1; width: 30px; height: 30px; background-size: 15px; }
 }
 
+/* ---------- À propos (texte complet) ---------- */
+.about-intro { align-items: start; }
+.about-intro p:not(.eyebrow) { color: var(--slate-600); }
+.about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 64px; align-items: start; }
+.about-stack { display: grid; gap: 20px; }
+.about-card { background: var(--slate-100); border-radius: var(--radius); padding: 30px; }
+.about-card p { color: var(--slate-600); font-size: .95rem; }
+.about-card .checks { margin: 8px 0 0; }
+.about-card .checks li { font-size: .95rem; margin-bottom: 8px; }
+.about-card .values { grid-template-columns: 1fr; margin: 8px 0 0; }
+.about-card .values li { background: #fff; }
+.about-card .mt { margin-top: 20px; }
+.about-card .pills li { font-size: .9rem; padding: 8px 12px; }
+.about-mission { background: var(--brand); color: #fff; position: relative; }
+.about-mission h3 { color: var(--accent); }
+.about-mission p { color: rgba(255,255,255,.92); font-size: 1.05rem; line-height: 1.6; margin: 0; }
+@media (max-width: 960px) { .about-grid { grid-template-columns: 1fr 1fr; } .about-grid > :last-child { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; margin-top: 48px; } .about-card { padding: 24px; } }
+
 </style>
   <script type="application/ld+json">
   {
@@ -782,23 +801,61 @@ body.sheet-open { overflow: hidden; }
 
     <!-- ENTREPRISE -->
     <section class="section" id="entreprise">
-      <div class="wrap split">
-        <div class="split-media">
-          <img class="ph-tall" src="https://static.wixstatic.com/media/ba2cd3_f50563ecfcf44fb5817ddc17c38e540f~mv2.jpg/v1/fill/w_1000,h_1000,al_c,q_80,enc_auto/ba2cd3_f50563ecfcf44fb5817ddc17c38e540f~mv2.jpg" alt="" loading="lazy">
-          <div class="badge"><strong>1991</strong><span>Parc industriel de Deschambault-Grondines</span></div>
+      <div class="wrap">
+        <div class="split about-intro">
+          <div class="split-media">
+            <img class="ph-tall" src="https://static.wixstatic.com/media/ba2cd3_f50563ecfcf44fb5817ddc17c38e540f~mv2.jpg/v1/fill/w_1000,h_1000,al_c,q_80,enc_auto/ba2cd3_f50563ecfcf44fb5817ddc17c38e540f~mv2.jpg" alt="L'usine Pro-Métal Plus à Deschambault-Grondines" loading="lazy">
+            <div class="badge"><strong>1991</strong><span>Parc industriel de Deschambault-Grondines</span></div>
+          </div>
+          <div>
+            <p class="eyebrow">Notre entreprise</p>
+            <h2>À propos de Pro-Métal Plus</h2>
+            <p>Depuis son ouverture en 1991, Pro-Métal Plus a établi son usine dans le parc industriel de Deschambault-Grondines (comté de Portneuf), au Québec. L'entreprise se spécialise dans la transformation de métaux tels que l'acier, l'acier inoxydable, l'aluminium et le cuivre.</p>
+            <p>Notre équipe de plus de 110 employés dynamiques et compétents conçoit, fabrique, soude, effectue le nettoyage au jet de sable ou de verre, applique la peinture prédéterminée et installe différentes sortes de pièces et d'équipements industriels, selon les spécifications de notre clientèle.</p>
+            <p>Nous offrons aussi un service de location de personnel qualifié et spécialisé. Nous vous aidons lors de vos arrêts de production planifiés dans de multiples secteurs : alumineries, papetières, mines, cimenteries et tout autre type d'usine où sont requis des champs de spécialisation et des compétences propres à nos qualifications.</p>
+            <p class="sister">Entreprise sœur : <a href="https://www.biomasseplus.ca/" rel="noopener">BIOmasse Plus</a></p>
+          </div>
         </div>
-        <div>
-          <p class="eyebrow">Notre entreprise</p>
-          <h2>Des solutions sur mesure à tous vos problèmes de métal</h2>
-          <p>Depuis 1991, à 40 km à l'ouest de Québec, nous offrons des produits et services sur mesure et de qualité supérieure. Le travail est fait par des employés qualifiés et spécialisés, dans un cadre sécuritaire.</p>
-          <ul class="values">
-            <li><strong>Qualité</strong><span>Produits, services, relations</span></li>
-            <li><strong>Respect</strong><span>Clients, employés, fournisseurs</span></li>
-            <li><strong>Savoir</strong><span>Formation continue</span></li>
-            <li><strong>Flexibilité</strong><span>S'adapter à vos besoins</span></li>
-            <li><strong>Santé et sécurité</strong><span>Un milieu de travail harmonieux</span></li>
-          </ul>
-          <p class="sister">Entreprise sœur : <a href="https://www.biomasseplus.ca/" rel="noopener">BIOmasse Plus</a></p>
+
+        <div class="about-grid">
+          <article class="about-card">
+            <h3>Historique</h3>
+            <p>Pro-Métal Plus est une société qui a vu le jour en 1991 et qui est établie au 12, boulevard des Sources à Deschambault-Grondines, dans le parc industriel.</p>
+            <p>Se démarquant par son dynamisme, son service à la clientèle et la sous-traitance industrielle, notre équipe travaille dans divers secteurs d'activité :</p>
+            <ul class="checks">
+              <li>La fabrication et la conception par ordinateur</li>
+              <li>La tuyauterie</li>
+              <li>La soudure spécialisée</li>
+              <li>Les appareils sous pression</li>
+              <li>La mécanique et l'usinage industriels</li>
+              <li>Les filets et gardes de sécurité</li>
+            </ul>
+          </article>
+
+          <div class="about-stack">
+            <article class="about-card about-mission">
+              <h3>Mission</h3>
+              <p>Offrir à nos clients des produits et services sur mesure et de qualité supérieure grâce à des employés qualifiés et spécialisés dans le domaine de la transformation de métaux, tout en effectuant les travaux dans un cadre sécuritaire.</p>
+            </article>
+            <article class="about-card">
+              <h3>Spécialités</h3>
+              <p>Soudage et entretien industriels.</p>
+              <h3 class="mt">Nos certifications</h3>
+              <ul class="pills"><li>ISO 9001</li><li>ASME</li><li>CWB</li><li>CSA W47.1</li><li>CSA W47.2</li><li>RBQ</li></ul>
+            </article>
+          </div>
+
+          <article class="about-card">
+            <h3>Valeurs</h3>
+            <p>Pro-Métal Plus vise l'excellence dans tous les domaines d'activités de l'entreprise :</p>
+            <ul class="values">
+              <li><strong>Qualité</strong><span>Produits, services, relations, communications</span></li>
+              <li><strong>Respect des autres</strong><span>Clients, employés, fournisseurs</span></li>
+              <li><strong>Savoir</strong><span>Développement du savoir, formation continue</span></li>
+              <li><strong>Flexibilité</strong><span>S'adapter aux besoins des clients et des employés</span></li>
+              <li><strong>Santé et bien-être</strong><span>Santé-sécurité et atmosphère de travail en harmonie</span></li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
