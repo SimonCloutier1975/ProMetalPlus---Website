@@ -45,6 +45,22 @@ Dans *Design du site → Couleurs* et *Thèmes de texte* : tout le reste du site
 | Gris clair | `#EEF1F0` | Fonds de sections alternées, formulaire |
 | Gris texte | `#4B585C` | Paragraphes secondaires |
 
+### Variante « couleurs du logo » (`maquette-logo.html`)
+Palette tirée du logo (vert, rouge, blanc), à utiliser à la place de la précédente si elle est retenue :
+
+| Rôle | Code | Usage |
+|---|---|---|
+| Vert du logo | `#1A6B5C` | Barre du haut, titres de sections, liens, pastilles |
+| Rouge du logo | `#D3202A` | **Boutons d'action**, barre inclinée sous les titres, bande main-d'œuvre |
+| Rouge vif | `#FF4A52` | Grands textes rouges sur fond foncé seulement (mot « industriels. », téléphone du pied de page) |
+| Vert profond | `#0F2E28` | Haut de page, section Urgence, bandeau des certifications |
+| Vert très foncé | `#0B231F` | Pied de page |
+| Menthe | `#9ED9C6` | Surtitres sur fond foncé |
+| Blanc | `#FFFFFF` | En-tête (le logo s'y pose directement, sans plaque) |
+
+Signature visuelle : une barre rouge inclinée (6 px × 64 px, inclinaison de 20°) sous chaque grand titre, rappel du trait rouge du logo.
+Contraste : texte blanc sur `#D3202A` conforme WCAG AA ; ne pas utiliser `#E3202A` (le rouge exact du logo) pour des boutons avec du texte blanc.
+
 ### Polices
 - **Titres :** Barlow Condensed, gras (700–800), MAJUSCULES.
 - **Texte :** Inter, normal (400) et semi-gras (600).

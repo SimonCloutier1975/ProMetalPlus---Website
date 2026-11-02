@@ -534,3 +534,90 @@ body.sheet-open { overflow: hidden; }
   .sheet:not(.policy) .sheet-close:hover { background: rgba(20,27,29,.16); }
 }
 @media (min-width: 900px) { .sheet:not(.policy) aside .btn { white-space: nowrap; padding: 14px 16px; font-size: .9rem; } }
+
+/* =====================================================================
+   Variante « couleurs du logo » : vert, rouge et blanc (html.theme-logo)
+   ===================================================================== */
+html.theme-logo {
+  --brand: #1a6b5c;          /* vert du logo */
+  --brand-600: #2a7f6e;
+  --brand-50: #e6f2ef;
+  --accent: #d3202a;         /* rouge du logo (boutons, contraste AA avec le blanc) */
+  --accent-dark: #b01a22;
+  --red-bright: #ff4a52;     /* rouge pour texte large sur fond foncé */
+  --ink: #14201d;
+  --slate-900: #0f2e28;      /* vert profond pour les sections foncées */
+  --slate-800: #16403a;
+  --mint: #9ed9c6;           /* surtitres sur fond foncé */
+}
+.theme-logo .btn-primary { color: #fff; }
+.theme-logo .btn-primary:hover { background: var(--accent-dark); }
+
+/* Barre du haut et en-tête blanc */
+.theme-logo .pulse { background: #fff; box-shadow: 0 0 0 0 rgba(255,255,255,.7); }
+.theme-logo .topbar a:hover { color: #fff; text-decoration: underline; }
+.theme-logo .site-header { background: rgba(255,255,255,.97); color: var(--ink); border-bottom: 1px solid var(--slate-200); box-shadow: 0 2px 12px rgba(20,32,29,.06); }
+.theme-logo .logo-plate { background: none; padding: 0; border: 0; border-radius: 0; }
+.theme-logo .logo-plate img { height: 48px; }
+.theme-logo .nav a:not(.btn) { opacity: 1; color: var(--ink); }
+.theme-logo .nav a:not(.btn):hover { color: var(--brand); }
+.theme-logo .nav-toggle span { background: var(--ink); }
+
+/* Hero */
+.theme-logo .hero { background: var(--slate-900); }
+.theme-logo .hero-bg {
+  background:
+    radial-gradient(circle at 82% 22%, rgba(211,32,42,.20), transparent 38%),
+    linear-gradient(100deg, rgba(15,46,40,.96) 35%, rgba(15,46,40,.74) 65%, rgba(26,107,92,.55)),
+    var(--hero, none) center / cover no-repeat,
+    var(--slate-900);
+}
+.theme-logo .hero .eyebrow, .theme-logo .section-dark .eyebrow, .theme-logo .sheet-title .eyebrow { color: var(--mint); }
+.theme-logo .accent { color: var(--red-bright); }
+.theme-logo .stats li { border-color: rgba(255,255,255,.14); }
+.theme-logo .stats strong { color: #fff; }
+.theme-logo .stats strong::after { content: ""; display: block; width: 28px; height: 4px; margin-top: 10px; background: var(--red-bright); transform: skewX(-20deg); }
+.theme-logo .lead { color: #d9ebe6; }
+
+/* Barre rouge inclinée sous les titres (rappel du logo) */
+.theme-logo .section-head h2::after,
+.theme-logo .about-intro h2::after,
+.theme-logo .careers h2::after,
+.theme-logo #contact h2::after,
+.theme-logo .emergency h2::after {
+  content: ""; display: block; width: 64px; height: 6px; margin-top: 16px; background: var(--accent); transform: skewX(-20deg); transform-origin: left;
+}
+.theme-logo .section-head.center h2::after { margin-inline: auto; }
+.theme-logo .emergency h2::after { background: var(--red-bright); }
+
+/* Sections foncées en vert profond */
+.theme-logo .has-bg { background: linear-gradient(90deg, rgba(15,46,40,.97) 40%, rgba(15,46,40,.86)), var(--bg) center / cover no-repeat, var(--slate-900); }
+.theme-logo .case { border-left-color: var(--red-bright); }
+.theme-logo .case-kpi { color: #fff !important; }
+.theme-logo .cert-txt small { color: var(--mint); opacity: .85; }
+
+/* Cartes, onglets, détails */
+.theme-logo .specs li::before { color: var(--accent); }
+.theme-logo .card:hover { border-color: var(--accent); }
+.theme-logo .badge { background: var(--accent); color: #fff; }
+.theme-logo .about-mission h3 { color: #fff; }
+.theme-logo .about-mission h3::after { content: ""; display: block; width: 40px; height: 5px; margin-top: 10px; background: var(--red-bright); transform: skewX(-20deg); }
+.theme-logo .chip.is-active, .theme-logo .chip:hover { background: var(--brand); border-color: var(--brand); }
+
+/* Bande main-d'œuvre en rouge */
+.theme-logo .labour { background: var(--accent); }
+.theme-logo .labour .eyebrow { color: #fff; opacity: .85; }
+.theme-logo .labour .btn-dark { background: #fff; color: var(--accent); }
+.theme-logo .labour .btn-dark:hover { background: #f3f3f3; }
+
+/* Pied de page */
+.theme-logo .site-footer { background: #0b231f; }
+.theme-logo .site-footer .logo-text strong, .theme-logo .footer-phone { color: var(--red-bright); }
+.theme-logo .call-fab { color: #fff; }
+.theme-logo :focus-visible { outline-color: var(--accent); }
+
+@media (max-width: 860px) {
+  .theme-logo .nav { background: #fff; border-bottom: 1px solid var(--slate-200); top: 110px; }
+  .theme-logo .nav a:not(.btn) { border-bottom-color: var(--slate-200); }
+}
+@media (max-width: 640px) { .theme-logo .logo-plate img { height: 38px; } }
