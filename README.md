@@ -97,6 +97,8 @@ Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 - [ ] PDF : certificats, descriptif technique des filets, procédures de soumission
 - [ ] Version anglaise
 
-## Choix de plateforme
-- **Rester sur Wix** : la maquette sert de guide de design (Wix Studio permet de reproduire cette mise en page). Mises à jour faciles pour l'équipe.
-- **Site statique** (cette maquette, hébergée sur Netlify ou GitHub Pages) : beaucoup plus rapide, gratuit à héberger, mais les mises à jour passent par un développeur ou un CMS léger.
+## Plateforme : Wix (décision prise)
+Le site reste sur Wix. La maquette sert de référence visuelle ; le montage est détaillé dans
+**[GUIDE-WIX.md](GUIDE-WIX.md)** (styles, sections, CMS, formulaire, SEO, redirections, mise en ligne).
+Sur Wix, on **conserve les adresses actuelles** (déjà connues de Google), sauf `/services-7` → `/identification-equipements`
+et une nouvelle page `/urgence-24-7`. L'arborescence de la section 2 est donc indicative.
