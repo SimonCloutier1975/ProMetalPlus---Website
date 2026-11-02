@@ -96,6 +96,7 @@ Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 ---
 
 ## 3. À compléter avant la mise en ligne
+- [ ] Valider les phrases des piliers Fierté, Confiance et Flexibilité (rédigées pour la maquette à partir du contenu existant)
 - [x] Photos réelles intégrées depuis la médiathèque Wix actuelle (logo, bannières des services, urgence, entreprise, 12 réalisations, 30 logos clients)
 - [ ] Vérifier le choix des photos (en particulier celle du haut de page) et préciser les titres des réalisations
 - [ ] Vérifier les liens des logos clients (repris de l'ancien site) : plusieurs sont en http ou pointent vers des pages internes qui ont pu changer (Hydro-Québec, Résolu, Rio Tinto, ArcelorMittal « transformerlavenir.com »). Tacora et le 2e logo Rio Tinto n'avaient pas de lien.

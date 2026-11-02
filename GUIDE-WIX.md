@@ -123,6 +123,7 @@ Chaque section de la maquette correspond à une **section Wix** (pleine largeur,
 | 7 | **Réalisations** | Voir section 5. |
 | 8 | **Clients** | **Pro Gallery** en grille de 5 colonnes avec les logos actuels. *Paramètres → Survol : couleur* ; logos en niveaux de gris (CSS, section 9, ou images converties en gris avant le téléversement). Remplir le **texte alternatif** de chaque logo avec le nom du client. |
 | 9 | **Entreprise** | 2 colonnes : photo (équipe ou usine) avec étiquette rouge « 1991 » ; à droite, mission et 5 valeurs en grille 2 × 3. |
+| 9b | **Piliers** | Dans la section Entreprise, bandeau noir métal de 3 colonnes séparées par un trait rouge : Fierté, Confiance, Flexibilité (valeurs du nouveau logo), chacune avec son icône rouge dans un cercle argenté et une phrase courte. Une colonne sur mobile. |
 | 10 | **Carrières et main-d'œuvre** | Section verte, 2 boîtes côte à côte. Carrières : « Voir les postes ouverts » (lien Jobillico) et « Envoyer mon CV » (vers le formulaire). Main-d'œuvre : « Réserver une équipe ». |
 | 11 | **Contact** | 2 colonnes : coordonnées et équipe de direction dans un **accordéon** (*Texte repliable* ou *Accordéon*) ; formulaire à droite (section 6). |
 | 12 | **Pied de page** | 4 colonnes : logo et adresse · Services · Entreprise · « Urgence 24/7 » avec le numéro en grand. Retirer « Création de Pages Jaunes » si le contrat le permet. |

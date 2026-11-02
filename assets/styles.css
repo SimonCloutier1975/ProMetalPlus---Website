@@ -717,3 +717,19 @@ body.sheet-open { overflow: hidden; }
 @media (max-width: 640px) { .logo-plate img { height: 44px; } .header-inner { height: 70px; } .nav { top: 108px; } }
 /* Menu mobile : l'en-tête (backdrop-filter) sert de repère au menu fixe ; le placer juste dessous */
 @media (max-width: 860px) { .nav, .site-header .nav { top: 100%; } }
+
+/* ---------- Piliers du logo : Fierté, Confiance, Flexibilité ---------- */
+.pillars { list-style: none; margin: 64px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); background: var(--brushed), linear-gradient(180deg, #1c1c1b, #121211); border-radius: var(--radius); overflow: hidden; }
+.pillars li { display: flex; align-items: center; gap: 18px; padding: 30px 32px; color: #fff; }
+.pillars li + li { border-left: 2px solid var(--accent); }
+.pillar-icon { flex: none; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f4f4f3, #b9b8b6 70%, #8e8d8a); box-shadow: inset 0 0 0 3px rgba(255,255,255,.35), 0 4px 12px rgba(0,0,0,.4); color: var(--accent); }
+.pillar-icon svg { width: 34px; height: 34px; stroke-width: 2.2; }
+.pillar-icon .fill { fill: currentColor; stroke: none; }
+.pillars h3 { margin: 0 0 4px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: .06em; }
+.pillars p { margin: 0; color: var(--silver); font-size: .92rem; line-height: 1.5; }
+.about-grid { margin-top: 24px; }
+@media (max-width: 960px) {
+  .pillars { grid-template-columns: 1fr; }
+  .pillars li + li { border-left: 0; border-top: 2px solid var(--accent); }
+}
+@media (max-width: 640px) { .pillars { margin-top: 48px; } .pillars li { padding: 24px 20px; } .pillar-icon { width: 54px; height: 54px; } .pillar-icon svg { width: 28px; height: 28px; } }
