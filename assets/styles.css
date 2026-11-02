@@ -643,3 +643,77 @@ body.sheet-open { overflow: hidden; }
 .social a:hover { background: var(--accent); transform: translateY(-2px); }
 .social svg { width: 20px; height: 20px; }
 .social a:first-child svg { fill: currentColor; stroke: none; }
+
+/* =====================================================================
+   Nouveau logo PMP : noir métal brossé, acier argenté et rouge
+   (remplace la palette verte précédente)
+   ===================================================================== */
+:root {
+  --brand: #2a2a29;          /* charbon : fonds de pastilles, cartes foncées */
+  --brand-600: #3a3937;
+  --brand-50: #efefee;
+  --accent: #c71f1d;         /* rouge du logo (texte blanc : contraste 5,7) */
+  --accent-dark: #a51917;
+  --red-bright: #ff4a44;     /* rouge sur fond noir */
+  --ink: #161615;
+  --slate-900: #141413;      /* noir métal du logo */
+  --slate-800: #262625;
+  --slate-600: #55534f;
+  --slate-400: #9a9893;
+  --slate-200: #dcdbd8;
+  --slate-100: #f1f1ef;
+  --mint: #c9c8c6;           /* argent : surtitres sur fond foncé */
+  --silver: #d4d3d3;
+  --brushed: repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 3px);
+}
+
+/* Barre d'urgence rouge, en-tête noir avec le logo */
+.topbar { background: var(--accent); }
+.site-header { background: var(--brushed), linear-gradient(180deg, #1c1c1b, #121211); color: #fff; border-bottom: 1px solid rgba(255,255,255,.08); box-shadow: 0 2px 16px rgba(0,0,0,.35); }
+.header-inner { height: 80px; }
+.logo-plate img { height: 56px; }
+.nav a:not(.btn) { color: #e8e7e5; }
+.nav a:not(.btn):hover { color: var(--red-bright); }
+.nav-toggle span { background: #fff; }
+
+/* Haut de page et sections foncées : noir métal brossé */
+.hero, .hero-bg { background-color: var(--slate-900); }
+.hero-bg {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(199,31,29,.22), transparent 40%),
+    linear-gradient(100deg, rgba(20,20,19,.96) 35%, rgba(20,20,19,.76) 65%, rgba(20,20,19,.55)),
+    var(--hero, none) center / cover no-repeat,
+    var(--slate-900);
+}
+.lead { color: #dad9d6; }
+.certs { background: var(--brushed), #1b1b1a; }
+.has-bg { background: linear-gradient(90deg, rgba(20,20,19,.97) 40%, rgba(20,20,19,.86)), var(--bg) center / cover no-repeat, var(--slate-900); }
+.case { background: #222221; }
+.site-footer { background: var(--brushed), #0f0f0e; }
+.footer-logo { display: block; width: 230px; height: auto; margin-bottom: 14px; }
+
+/* Rouge pour les repères sur fond clair */
+.eyebrow { color: var(--accent); }
+.hero .eyebrow, .section-dark .eyebrow, .sheet-title .eyebrow, .certs p { color: var(--silver); }
+.labour .eyebrow { color: #fff; }
+.icon { background: var(--brand-50); color: var(--accent); }
+.more, .dz-link, .hint a, .consent a, .sister a, .contact-list a, .team summary, .team li a, .policy-contact a { color: var(--accent); }
+.dz-icon { background: var(--brand-50); color: var(--accent); }
+.tabs button[aria-selected="true"] { color: var(--accent); border-color: var(--accent); }
+.values li, .jobs-box, .policy-contact { border-left-color: var(--accent); }
+.sheet-specs dt, .policy-body h3 { color: var(--accent); }
+.specs { color: var(--ink); }
+.about-mission { background: var(--brushed), #1f1f1e; }
+.about-mission h3 { color: #fff; }
+.chip.is-active, .chip:hover { background: var(--ink); border-color: var(--ink); }
+.dropzone.has-file, .form .dropzone:hover, .dropzone.is-over { border-color: var(--ink); }
+.form input:focus, .form select:focus, .form textarea:focus { outline-color: var(--accent); }
+.ph, .card-img, .tile, .sheet-img, img.ph-tall { background: linear-gradient(135deg, #262625, #3a3937); }
+
+@media (max-width: 860px) {
+  .nav { background: #141413; border-bottom: 1px solid rgba(255,255,255,.08); top: 118px; }
+  .nav a:not(.btn) { border-bottom-color: rgba(255,255,255,.08); }
+}
+@media (max-width: 640px) { .logo-plate img { height: 44px; } .header-inner { height: 70px; } .nav { top: 108px; } }
+/* Menu mobile : l'en-tête (backdrop-filter) sert de repère au menu fixe ; le placer juste dessous */
+@media (max-width: 860px) { .nav, .site-header .nav { top: 100%; } }

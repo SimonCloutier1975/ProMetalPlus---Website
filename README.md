@@ -87,7 +87,7 @@ Tout le contenu provient du site actuel (analysé le 2 novembre 2026).
 Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 
 ### Direction visuelle
-- **Couleurs du logo** : vert (#1A6B5C) comme couleur principale, **rouge** (#D3202A) pour les actions, en-tête blanc, sections foncées en vert profond (#0F2E28). Une barre rouge inclinée sous les titres rappelle le trait rouge du logo.
+- **Couleurs du nouveau logo PMP** : noir métal brossé (#141413), **rouge** (#C71F1D) pour les actions et les repères, argent (#D4D3D3) sur fond noir. En-tête noir (le logo est conçu pour un fond foncé), barre rouge inclinée sous les titres, texture d'acier brossé discrète.
 - **Typographie** : Barlow Condensed (titres industriels) + Inter (texte lisible), alignée à gauche.
 - **Mobile d'abord** : bouton d'appel flottant, menu hamburger, cibles tactiles larges.
 - **Accessibilité** : contrastes élevés, lien d'évitement, onglets ARIA, `prefers-reduced-motion`.
@@ -99,7 +99,7 @@ Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 - [x] Photos réelles intégrées depuis la médiathèque Wix actuelle (logo, bannières des services, urgence, entreprise, 12 réalisations, 30 logos clients)
 - [ ] Vérifier le choix des photos (en particulier celle du haut de page) et préciser les titres des réalisations
 - [ ] Vérifier les liens des logos clients (repris de l'ancien site) : plusieurs sont en http ou pointent vers des pages internes qui ont pu changer (Hydro-Québec, Résolu, Rio Tinto, ArcelorMittal « transformerlavenir.com »). Tacora et le 2e logo Rio Tinto n'avaient pas de lien.
-- [ ] Logo en version vectorielle (SVG), idéalement une version claire pour fond foncé
+- [ ] Nouveau logo PMP en version vectorielle (SVG) : le PNG actuel (`assets/logo-pmp.png`) est découpé d'une image ; prévoir aussi une version pour fond clair. Confirmer les codes de couleur officiels.
 - [x] Numéro principal confirmé : 418-286-4949 (utilisé partout, y compris pour les postes de la direction)
 - [ ] Vérifier que les postes 105 à 110 fonctionnent bien sur le 4949
 - [ ] Confirmer l'effectif à afficher (110+)

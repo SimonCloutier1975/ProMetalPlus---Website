@@ -229,6 +229,7 @@ TR = {
     "Voir nos offres sur Jobillico ↗": "View our openings on Jobillico ↗",
     "(s'ouvre dans un nouvel onglet)": "(opens in a new tab)",
     "Suivez-nous": "Follow us",
+    "Pro-Métal Plus – Soudage et entretien industriels – Fierté, Confiance, Flexibilité": "Pro-Métal Plus – Industrial welding and maintenance – Pride, Trust, Flexibility",
     "Facebook (s'ouvre dans un nouvel onglet)": "Facebook (opens in a new tab)",
     "LinkedIn (s'ouvre dans un nouvel onglet)": "LinkedIn (opens in a new tab)",
     "Phase 2 : les offres s'afficheront directement ici (intégration Jobillico).": "Phase 2: openings will be displayed directly here (Jobillico integration).",

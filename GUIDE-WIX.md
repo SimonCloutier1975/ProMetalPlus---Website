@@ -34,22 +34,24 @@ actuels se copient facilement : le travail porte surtout sur la mise en page.
 
 Dans *Design du site → Couleurs* et *Thèmes de texte* : tout le reste du site héritera de ces réglages.
 
-### Couleurs (palette du logo)
+### Couleurs (nouveau logo PMP)
+Palette tirée du nouveau logo (noir métal brossé, acier argenté, rouge). **Provisoire** : à confirmer avec les codes officiels du fichier vectoriel.
+
 | Rôle | Code | Usage |
 |---|---|---|
-| Vert du logo | `#1A6B5C` | Barre du haut, titres de sections, liens, pastilles |
-| Rouge du logo | `#D3202A` | **Boutons d'action**, barre inclinée sous les titres, bande main-d'œuvre |
-| Rouge vif | `#FF4A52` | Grands textes rouges sur fond foncé seulement (mot « industriels. », téléphone du pied de page) |
-| Vert profond | `#0F2E28` | Haut de page, section Urgence, bandeau des certifications |
-| Vert très foncé | `#0B231F` | Pied de page |
-| Menthe | `#9ED9C6` | Surtitres sur fond foncé |
-| Blanc | `#FFFFFF` | En-tête (le logo s'y pose directement, sans plaque) |
-| Gris clair | `#EEF1F0` | Fonds de sections alternées, formulaires |
-| Gris texte | `#4B585C` | Paragraphes secondaires |
-| Encre | `#14201D` | Texte principal |
+| Noir métal | `#141413` | En-tête, haut de page, section Urgence, bandeau des certifications |
+| Noir pied de page | `#0F0F0E` | Pied de page |
+| Charbon | `#2A2A29` | Pastilles, carte Mission, éléments foncés sur fond clair |
+| Rouge du logo | `#C71F1D` | **Boutons d'action**, barre d'urgence, liens, surtitres, barre inclinée sous les titres, bande main-d'œuvre |
+| Rouge vif | `#FF4A44` | Rouge sur fond noir (mot « industriels. », téléphone, survol du menu) |
+| Argent | `#D4D3D3` | Surtitres et repères sur fond noir |
+| Gris clair | `#F1F1EF` | Fonds de sections alternées, formulaires |
+| Gris texte | `#55534F` | Paragraphes secondaires |
+| Encre | `#161615` | Texte principal |
 
-Signature visuelle : une barre rouge inclinée (6 px × 64 px, inclinaison de 20°) sous chaque grand titre, rappel du trait rouge du logo.
-Contraste : texte blanc sur `#D3202A` conforme WCAG AA ; ne pas utiliser `#E3202A` (le rouge exact du logo) pour des boutons avec du texte blanc.
+Signature visuelle : barre rouge inclinée sous chaque grand titre (rappel des traits rouges du logo) et texture d'acier brossé discrète sur les fonds noirs.
+Le logo est conçu pour un **fond foncé** (textes blancs et argentés) : l'en-tête est donc noir. Une version pour fond clair sera nécessaire pour les documents et certains usages.
+Contraste : texte blanc sur `#C71F1D` = 5,7 (conforme WCAG AA).
 
 ### Polices
 - **Titres :** Barlow Condensed, gras (700–800), MAJUSCULES.
@@ -65,7 +67,7 @@ Contraste : texte blanc sur `#D3202A` conforme WCAG AA ; ne pas utiliser `#E3202
 | Surtitre | Inter 700, majuscules, espacement 0,16 em | 12 px, vert |
 | Paragraphe | Inter 400 | 16 px, interligne 1,65 |
 
-**Boutons** (*Design du site → Boutons*) : fond rouge `#D3202A`, texte blanc, Inter 700, coins arrondis 6 px.
+**Boutons** (*Design du site → Boutons*) : fond rouge `#C71F1D`, texte blanc, Inter 700, coins arrondis 6 px.
 Bouton secondaire : contour blanc, fond transparent.
 
 **Règle simple :** aucun texte centré-justifié, aucun titre rouge. Alignez à gauche.
@@ -91,9 +93,9 @@ Services ▾   Réalisations   Entreprise   Carrières   Contact   [Demander une
 - Libellés en casse normale (« Réalisations », pas « RÉALISATIONS »).
 
 ### En-tête
-1. **Barre d'urgence** (bande verte, 38 px) : « ● Urgence 24/7 partout au Canada » à gauche · `418-286-4949` · `info@prometalplus.com` · `EN` à droite.
+1. **Barre d'urgence** (bande rouge, 38 px) : « ● Urgence 24/7 partout au Canada » à gauche · `418-286-4949` · `info@prometalplus.com` · `EN` à droite.
    Sur mobile, masquer « partout au Canada » et le courriel.
-2. **En-tête** (blanc, 72 px) : logo à gauche, menu et bouton rouge « Demander une soumission » à droite.
+2. **En-tête** (noir métal, 80 px) : nouveau logo PMP à gauche, menu et bouton rouge « Demander une soumission » à droite.
 3. Réglage : *En-tête → Effets de défilement → Figer* (l'en-tête reste visible au défilement).
    **Logo :** *Lien → Haut/bas de page → Haut de page* : un clic sur le logo ramène en haut du site (sur les autres pages, lier plutôt à la page d'accueil).
 4. Tous les numéros de téléphone : *Lien → Numéro de téléphone* (`tel:`), pour qu'on puisse appeler en un clic sur cellulaire.
@@ -112,11 +114,11 @@ Chaque section de la maquette correspond à une **section Wix** (pleine largeur,
 
 | # | Section | Comment la monter dans Wix |
 |---|---|---|
-| 1 | **Hero** | Section vert profond avec **une seule photo fixe** (usine ou chantier) et un calque vert foncé à 75 %. Surtitre menthe, H1 (dernier mot en rouge vif), paragraphe, 2 boutons. **Supprimer le diaporama actuel** : il ralentit la page et cache le message. |
+| 1 | **Hero** | Section noir métal avec **une seule photo fixe** (usine ou chantier) et un calque noir à 75 %. Surtitre argent, H1 (dernier mot en rouge vif), paragraphe, 2 boutons. **Supprimer le diaporama actuel** : il ralentit la page et cache le message. |
 | 2 | **Chiffres clés** | Bande de 4 colonnes (grille). Chiffres en Barlow 40 px blanc avec un petit trait rouge incliné dessous, libellé gris. Fines lignes verticales entre les colonnes. |
-| 3 | **Certifications** | Bande vert profond. Texte « CERTIFIÉ ET ACCRÉDITÉ », puis les 4 logos (ISO 9001, CWB, ASME, RBQ) sur des pastilles blanches, chacun avec son libellé. Chaque nom peut pointer vers le PDF du certificat. |
+| 3 | **Certifications** | Bande noir métal. Texte « CERTIFIÉ ET ACCRÉDITÉ », puis les 4 logos (ISO 9001, CWB, ASME, RBQ) sur des pastilles blanches, chacun avec son libellé. Chaque nom peut pointer vers le PDF du certificat. |
 | 4 | **Services** | **Répéteur relié à la collection CMS « Services »** (voir section 4). 4 colonnes sur ordinateur, 2 sur tablette, 1 sur mobile. Carte blanche, bordure grise, icône dans un carré vert pâle, 2 spécifications en bas. Survol : bordure verte et ombre. |
-| 5 | **Urgence 24/7** | Section vert profond en 2 colonnes : à gauche, titre et bouton « Appeler le 418-286-4949 » ; à droite, 2 cartes (bordure gauche rouge) : Valero « ≤ 3 semaines », Alcoa « Réponse immédiate ». |
+| 5 | **Urgence 24/7** | Section noir métal en 2 colonnes : à gauche, titre et bouton « Appeler le 418-286-4949 » ; à droite, 2 cartes (bordure gauche rouge) : Valero « ≤ 3 semaines », Alcoa « Réponse immédiate ». |
 | 6 | **Expertise par métal** | Élément **Onglets** (*Ajouter → Interactif → Onglets*) : Acier et inox / Aluminium / Cuivre. Dans chaque onglet, le texte et les procédés en pastilles vertes (FCAW, GMAW, SAW…). |
 | 7 | **Réalisations** | Voir section 5. |
 | 8 | **Clients** | **Pro Gallery** en grille de 5 colonnes avec les logos actuels. *Paramètres → Survol : couleur* ; logos en niveaux de gris (CSS, section 9, ou images converties en gris avant le téléversement). Remplir le **texte alternatif** de chaque logo avec le nom du client. |
