@@ -13,45 +13,62 @@ nav.querySelectorAll('a').forEach((a) =>
   })
 );
 
-// Années d'expérience calculées automatiquement
-const years = new Date().getFullYear() - 1991;
-const counter = document.querySelector('[data-count]');
-if (counter) counter.textContent = years;
-document.getElementById('year').textContent = new Date().getFullYear();
+// Années d'expérience et année courante calculées automatiquement
+const now = new Date().getFullYear();
+document.querySelectorAll('[data-since]').forEach((el) => { el.textContent = now - Number(el.dataset.since); });
+document.getElementById('year').textContent = now;
+
+// Onglets « métaux »
+const tabs = document.querySelectorAll('[role="tab"]');
+tabs.forEach((tab) =>
+  tab.addEventListener('click', () => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  })
+);
 
 // Filtres de réalisations
+const gallery = document.querySelector('.gallery');
 const chips = document.querySelectorAll('.chip');
-const tiles = document.querySelectorAll('.tile');
 chips.forEach((chip) =>
   chip.addEventListener('click', () => {
     chips.forEach((c) => c.classList.remove('is-active'));
     chip.classList.add('is-active');
     const f = chip.dataset.filter;
-    tiles.forEach((t) => t.classList.toggle('is-hidden', f !== 'all' && t.dataset.cat !== f));
+    gallery.classList.toggle('filtered', f !== 'all');
+    gallery.querySelectorAll('.tile').forEach((t) => t.classList.toggle('is-hidden', f !== 'all' && t.dataset.cat !== f));
   })
 );
 
-// Apparition au défilement
-const io = 'IntersectionObserver' in window
-  ? new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 })
-  : null;
-document.querySelectorAll('.card, .steps li, .tile, .split > *, .careers > *').forEach((el) => {
-  if (!io) return;
-  el.classList.add('reveal');
-  io.observe(el);
-});
+// Boutons qui présélectionnent le type de demande
+const typeSelect = document.getElementById('type');
+document.querySelectorAll('[data-type]').forEach((btn) =>
+  btn.addEventListener('click', () => { typeSelect.value = btn.dataset.type; })
+);
 
-// Formulaire (démo : à brancher sur un service d'envoi, ex. Formspree ou un script serveur)
+// Apparition au défilement
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.card, .case, .tile, .logos li, .split > *, .duo-card').forEach((el) => {
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+}
+
+// Formulaire (démo : à brancher sur un service d'envoi, ex. Formspree, Netlify Forms ou script serveur)
 const form = document.getElementById('quote-form');
 const status = form.querySelector('.form-status');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (!form.checkValidity()) {
-    status.textContent = 'Veuillez remplir les champs obligatoires (nom, courriel, projet).';
+    status.textContent = 'Veuillez remplir les champs obligatoires (*).';
     status.className = 'form-status err';
     form.reportValidity();
     return;
