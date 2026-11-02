@@ -25,7 +25,7 @@ TR = {
     "Demander une soumission": "Request a quote",
 
     # --- Hero et chiffres
-    "Depuis 1991 · Deschambault-Grondines, Québec": "Since 1991 · Deschambault-Grondines, Quebec",
+    "Le leader dans la transformation de métaux · depuis 1991": "The leader in metal manufacturing · since 1991",
     "Soudage, tuyauterie et entretien": "Industrial welding, piping and",
     "industriels.": "maintenance.",
     "Conception, fabrication, peinture et installation sous un même toit.": "Design, fabrication, painting and installation under one roof.",
@@ -50,7 +50,7 @@ TR = {
 
     # --- Services (cartes)
     "Nos services": "Our services",
-    "Tous les services, un seul entrepreneur": "Complete services, one contractor",
+    "Des services complets, un seul entrepreneur": "Complete services, one contractor",
     "Nos équipes multidisciplinaires prennent vos projets en charge de la prise de mesures sur place jusqu'à l'installation. Résultat : des délais plus courts, des coûts maîtrisés et du sur-mesure sur chaque projet.":
         "Our multidisciplinary teams handle your projects from on-site measurements to installation. The result: shorter lead times, controlled costs and tailor-made solutions on every project.",
     "Transformation de métaux": "Metal processing",
@@ -165,7 +165,7 @@ TR = {
 
     # --- Clients
     "Ils nous font confiance": "They trust us",
-    "Des clients exigeants, partout au Canada": "Demanding clients across Canada",
+    "Des clients partout au Canada": "Clients across Canada",
     "Résolu": "Resolute",
     "Ardel électrique": "Ardel Électrique",
 
@@ -464,5 +464,5 @@ TR = {
 # Noms propres laissés en français (pas de traduction attendue)
 NOMS_PROPRES = {
     "Pro-Métal", "Pro-Métal Plus", "Hydro-Québec", "Minerai de fer Québec", "Ville de Québec",
-    "Énergie Valero", "Régie du bâtiment du Québec",
+    "Énergie Valero", "Régie du bâtiment du Québec", "Ciment Québec",
 }

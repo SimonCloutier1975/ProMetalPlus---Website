@@ -630,3 +630,8 @@ body.sheet-open { overflow: hidden; }
 .jobs-logo { display: inline-flex; padding: 6px 10px; border-radius: 6px; transition: background .2s; }
 .jobs-logo:hover { background: var(--slate-100); }
 .jobs-logo img { height: 34px; width: auto; font-size: 0; color: transparent; }
+
+/* Logos clients cliquables (nouvel onglet) */
+.logos li a { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 8px; }
+.logos li a:hover img, .logos li a:focus-visible img { filter: none; opacity: 1; }
+.eyebrow { line-height: 1.45; }

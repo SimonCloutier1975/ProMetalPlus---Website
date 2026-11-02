@@ -98,7 +98,7 @@ Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 ## 3. À compléter avant la mise en ligne
 - [x] Photos réelles intégrées depuis la médiathèque Wix actuelle (logo, bannières des services, urgence, entreprise, 12 réalisations, 30 logos clients)
 - [ ] Vérifier le choix des photos (en particulier celle du haut de page) et préciser les titres des réalisations
-- [ ] Confirmer les noms de clients incertains : « CNC », « Ciment », « Gramfort », « Arno », « Gastier »
+- [ ] Vérifier les liens des logos clients (repris de l'ancien site) : plusieurs sont en http ou pointent vers des pages internes qui ont pu changer (Hydro-Québec, Résolu, Rio Tinto, ArcelorMittal « transformerlavenir.com »). Tacora et le 2e logo Rio Tinto n'avaient pas de lien.
 - [ ] Logo en version vectorielle (SVG), idéalement une version claire pour fond foncé
 - [x] Numéro principal confirmé : 418-286-4949 (utilisé partout, y compris pour les postes de la direction)
 - [ ] Vérifier que les postes 105 à 110 fonctionnent bien sur le 4949
