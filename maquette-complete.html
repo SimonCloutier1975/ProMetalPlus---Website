@@ -460,6 +460,8 @@ body.sheet-open { overflow: hidden; }
 .cert-img img, .cert-grid img { font-size: 0; color: transparent; }
 .certs .cert-list li { font: inherit; }
 @media (max-width: 640px) { .certs .cert-list { width: 100%; } .cert-txt small { font-size: .7rem; } }
+/* Texte de remplacement masqué si une photo ne charge pas (l'alt reste lu par les lecteurs d'écran) */
+.card-img img, .tile img, img.ph-tall, .logos li img, .sheet-img img { font-size: 0; color: transparent; }
 
 </style>
   <script type="application/ld+json">
