@@ -654,6 +654,14 @@ body.sheet-open { overflow: hidden; }
 .logos li a:hover img, .logos li a:focus-visible img { filter: none; opacity: 1; }
 .eyebrow { line-height: 1.45; }
 
+/* Réseaux sociaux (pied de page) */
+.site-footer .social-title { margin: 18px 0 10px; }
+.social { display: flex; gap: 10px; }
+.social a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,.08); color: #fff; transition: background .2s, transform .2s; }
+.social a:hover { background: var(--accent); transform: translateY(-2px); }
+.social svg { width: 20px; height: 20px; }
+.social a:first-child svg { fill: currentColor; stroke: none; }
+
 </style>
   <script type="application/ld+json">
   {
@@ -674,7 +682,7 @@ body.sheet-open { overflow: hidden; }
     },
     "openingHours": "Mo-Fr 07:00-16:00",
     "areaServed": "CA",
-    "sameAs": ["https://www.linkedin.com/company/pro-metal-plus"]
+    "sameAs": ["https://www.facebook.com/profile.php?id=100088237334074", "https://www.linkedin.com/company/pro-m%C3%A9tal-plus/"]
   }
   </script>
 </head>
@@ -1226,7 +1234,11 @@ body.sheet-open { overflow: hidden; }
       <div>
         <h3>24/7 emergency</h3>
         <a href="tel:+14182864949" class="footer-phone">418-286-4949</a>
-        <a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a>
+        <h3 class="social-title">Follow us</h3>
+        <div class="social">
+          <a href="https://www.facebook.com/profile.php?id=100088237334074" target="_blank" rel="noopener noreferrer" aria-label="Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+          <a href="https://www.linkedin.com/company/pro-m%C3%A9tal-plus/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v11M6 5v.01M10 20v-6a3 3 0 0 1 6 0v6M10 9v11"/></svg></a>
+        </div>
       </div>
       <p class="copy">© <span id="year">2026</span> Pro-Métal Plus inc. All rights reserved. · <a href="#confidentialite" data-privacy>Privacy policy</a></p>
     </div>

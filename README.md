@@ -104,7 +104,7 @@ Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 - [ ] Vérifier que les postes 105 à 110 fonctionnent bien sur le 4949
 - [ ] Confirmer l'effectif à afficher (110+)
 - [ ] Logos de certification : la maquette reprend les images ISO 9001 et ASME du site actuel ; logo CWB « Certified CSA W47.1 / W47.2 » fourni (`assets/cwb-certified.png`) ; logo RBQ fourni (`assets/rbq.png`). Avant la mise en ligne, demander les fichiers officiels et les règles d'utilisation au registraire ISO, au CWB et à l'ASME (le logo d'ISO lui-même est interdit aux entreprises certifiées ; il faut celui du registraire).
-- [ ] URL exacte de la page LinkedIn
+- [x] Liens Facebook et LinkedIn (repris de l'ancien site) dans le pied de page
 - [ ] Brancher le formulaire (Formspree, Netlify Forms, ou formulaire Wix si le site reste sur Wix)
 - [ ] PDF : certificats, descriptif technique des filets, procédures de soumission
 - [x] Version anglaise de la maquette (`index-en.html`)
