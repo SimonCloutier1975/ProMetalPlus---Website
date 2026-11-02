@@ -87,8 +87,10 @@ Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 ---
 
 ## 3. À compléter avant la mise en ligne
-- [ ] Logo officiel (le monogramme « PM+ » est provisoire)
-- [ ] Photos : hero (usine ou chantier), galerie (reprendre les ~50 photos actuelles avec des textes alternatifs descriptifs), logos de clients
+- [x] Photos réelles intégrées depuis la médiathèque Wix actuelle (logo, bannières des services, urgence, entreprise, 12 réalisations, 30 logos clients)
+- [ ] Vérifier le choix des photos (en particulier celle du haut de page) et préciser les titres des réalisations
+- [ ] Confirmer les noms de clients incertains : « CNC », « Ciment », « Gramfort », « Arno », « Gastier »
+- [ ] Logo en version vectorielle (SVG), idéalement une version claire pour fond foncé
 - [x] Numéro principal confirmé : 418-286-4949 (utilisé partout, y compris pour les postes de la direction)
 - [ ] Vérifier que les postes 105 à 110 fonctionnent bien sur le 4949
 - [ ] Confirmer l'effectif à afficher (110+)

@@ -159,7 +159,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .filters { display: flex; gap: 8px; flex-wrap: wrap; }
 .chip { border: 1px solid var(--slate-200); background: var(--paper); border-radius: 999px; padding: 8px 16px; font: 500 .85rem/1 var(--font-body); cursor: pointer; }
 .chip.is-active, .chip:hover { background: var(--brand); color: #fff; border-color: var(--brand); }
-.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 16px; }
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; grid-auto-flow: dense; gap: 16px; }
 .tile { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; }
 .tile.is-hidden { display: none; }
 .t1 { grid-column: span 2; grid-row: span 2; }
@@ -289,4 +289,33 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
   .ph-tall { min-height: 300px; }
   .call-fab { display: grid; }
   .topbar-links { gap: 14px; }
+}
+
+/* ---------- Photos réelles (servies par Wix) ---------- */
+.logo-plate { display: inline-flex; align-items: center; background: #fff; border-radius: 6px; padding: 6px 10px; border-bottom: 3px solid var(--accent); }
+.logo-plate img { height: 40px; width: auto; }
+.hero-bg {
+  background:
+    radial-gradient(circle at 80% 25%, rgba(255,203,5,.18), transparent 40%),
+    linear-gradient(100deg, rgba(20,27,29,.96) 35%, rgba(20,27,29,.72) 65%, rgba(15,92,79,.55)),
+    var(--hero, none) center / cover no-repeat,
+    var(--ink);
+}
+.has-bg { position: relative; background: linear-gradient(90deg, rgba(27,36,39,.97) 40%, rgba(27,36,39,.85)), var(--bg) center / cover no-repeat, var(--slate-900); }
+.card { padding: 0 0 26px; overflow: hidden; }
+.card > :not(.card-img) { margin-inline: 26px; }
+.card-img { aspect-ratio: 16 / 9; background: linear-gradient(135deg, var(--slate-800), var(--brand)); overflow: hidden; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.card:hover .card-img img { transform: scale(1.05); }
+.card .icon { position: relative; margin-top: -25px; background: #fff; box-shadow: 0 4px 14px rgba(0,0,0,.12); }
+.tile { background: linear-gradient(135deg, var(--slate-800), var(--brand)); }
+.tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.tile:hover img { transform: scale(1.04); }
+img.ph-tall { width: 100%; height: 480px; object-fit: cover; background: linear-gradient(135deg, var(--slate-800), var(--brand)); }
+.logos li img { max-width: 100%; max-height: 60px; width: auto; height: auto; filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s; }
+.logos li:hover img { filter: none; opacity: 1; }
+.logos li { filter: none; }
+@media (max-width: 640px) {
+  .logo-plate img { height: 32px; }
+  img.ph-tall { height: 300px; }
 }
