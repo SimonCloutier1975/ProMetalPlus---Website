@@ -560,7 +560,7 @@ body.sheet-open { overflow: hidden; }
       <div class="topbar-links">
         <a href="tel:+14182864949">418-286-4949</a>
         <a href="mailto:info@prometalplus.com" class="hide-sm">info@prometalplus.com</a>
-        <a href="https://www.prometalplus.com/en" lang="en">EN</a>
+        <a href="maquette-complete-en.html" lang="en" hreflang="en">EN</a>
       </div>
     </div>
   </div>
@@ -1350,6 +1350,20 @@ body.sheet-open { overflow: hidden; }
   </a>
 
   <script>
+// Langue de la page (fr ou en) pour les messages générés en JavaScript
+const EN = document.documentElement.lang.toLowerCase().startsWith('en');
+const T = EN ? {
+  showLess: 'Show fewer photos', required: 'Please fill in the required fields (*).', needCv: 'Please attach your résumé.',
+  tooBig: 'Files exceed 15 MB in total.', total: (s) => 'Total of ' + s + ': the limit is 15 MB.', remove: 'Remove file',
+  kb: ' KB', mb: ' MB', dec: '.',
+  quoteOk: 'Thank you! Your request has been received. We will get back to you shortly.', jobOk: 'Thank you, we have received your application!',
+} : {
+  showLess: 'Afficher moins de photos', required: 'Veuillez remplir les champs obligatoires (*).', needCv: 'Veuillez joindre votre CV.',
+  tooBig: 'Les fichiers dépassent 15 Mo au total.', total: (s) => 'Total de ' + s + ' : la limite est de 15 Mo.', remove: 'Retirer le fichier',
+  kb: ' Ko', mb: ' Mo', dec: ',',
+  quoteOk: 'Merci! Votre demande a bien été reçue. Nous vous répondrons sous peu.', jobOk: 'Merci, nous avons reçu votre candidature!',
+};
+
 // Menu mobile
 const toggle = document.querySelector('.nav-toggle');
 const nav = document.getElementById('nav');
@@ -1410,7 +1424,7 @@ showAll.addEventListener('click', () => {
   const open = showAll.getAttribute('aria-expanded') === 'true';
   gallery.querySelectorAll('.tile.extra').forEach((t) => { t.hidden = open; });
   showAll.setAttribute('aria-expanded', String(!open));
-  showAll.textContent = open ? showAll.dataset.label : 'Afficher moins de photos';
+  showAll.textContent = open ? showAll.dataset.label : T.showLess;
   if (open) document.getElementById('realisations').scrollIntoView({ behavior: 'instant' });
 });
 showAll.dataset.label = showAll.textContent;
@@ -1511,7 +1525,7 @@ if (location.hash === '#confidentialite') openPrivacy();
 
 // Zones de dépôt de fichiers (une par formulaire)
 const MAX = 15 * 1024 * 1024;
-const fmt = (b) => (b < 1024 * 1024 ? Math.max(1, Math.round(b / 1024)) + ' Ko' : (b / 1024 / 1024).toFixed(1).replace('.', ',') + ' Mo');
+const fmt = (b) => (b < 1024 * 1024 ? Math.max(1, Math.round(b / 1024)) + T.kb : (b / 1024 / 1024).toFixed(1).replace('.', T.dec) + T.mb);
 const setupDropzone = (field) => {
   const input = field.querySelector('input[type="file"]');
   const zone = field.querySelector('.dropzone');
@@ -1524,7 +1538,7 @@ const setupDropzone = (field) => {
     list.innerHTML = '';
     files.forEach((f, i) => {
       const li = document.createElement('li');
-      li.innerHTML = '<span class="file-ext"></span><span class="file-name"></span><span class="file-size"></span><button type="button" class="file-remove" aria-label="Retirer le fichier">×</button>';
+      li.innerHTML = '<span class="file-ext"></span><span class="file-name"></span><span class="file-size"></span><button type="button" class="file-remove" aria-label="' + T.remove + '">×</button>';
       li.querySelector('.file-ext').textContent = (f.name.split('.').pop() || '').slice(0, 4);
       li.querySelector('.file-name').textContent = f.name;
       li.querySelector('.file-size').textContent = fmt(f.size);
@@ -1534,7 +1548,7 @@ const setupDropzone = (field) => {
     if (total() > MAX) {
       const li = document.createElement('li');
       li.className = 'file-error';
-      li.textContent = 'Total de ' + fmt(total()) + ' : la limite est de 15 Mo.';
+      li.textContent = T.total(fmt(total()));
       list.appendChild(li);
     }
     zone.classList.toggle('has-file', !multiple && files.length > 0);
@@ -1576,17 +1590,17 @@ const setupForm = (form, { success, needsFile = false }) => {
   form.addEventListener('change', clearError);
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (!form.checkValidity()) { fail('Veuillez remplir les champs obligatoires (*).'); form.reportValidity(); return; }
-    if (needsFile && dz && dz.count() === 0) { fail('Veuillez joindre votre CV.'); return; }
-    if (dz && dz.tooBig()) { fail('Les fichiers dépassent 15 Mo au total.'); return; }
+    if (!form.checkValidity()) { fail(T.required); form.reportValidity(); return; }
+    if (needsFile && dz && dz.count() === 0) { fail(T.needCv); return; }
+    if (dz && dz.tooBig()) { fail(T.tooBig); return; }
     status.textContent = success;
     status.className = 'form-status ok';
     form.reset();
     if (dz) dz.reset();
   });
 };
-setupForm(document.getElementById('quote-form'), { success: 'Merci! Votre demande a bien été reçue. Nous vous répondrons sous peu.' });
-setupForm(document.getElementById('job-form'), { success: 'Merci, nous avons reçu votre candidature!', needsFile: true });
+setupForm(document.getElementById('quote-form'), { success: T.quoteOk });
+setupForm(document.getElementById('job-form'), { success: T.jobOk, needsFile: true });
 
 </script>
 </body>

@@ -2,8 +2,15 @@
 
 Maquette fonctionnelle (HTML/CSS/JS statique, sans dépendances) proposant une refonte de
 https://www.prometalplus.com/. Ouvrir `index.html` dans un navigateur pour la consulter.
-`maquette-complete.html` est la version autonome (un seul fichier) ; la regénérer après chaque modification avec
-`python3 outils/generer-maquette-autonome.py`.
+Versions : `index.html` (français) et `index-en.html` (anglais, bouton FR/EN dans la barre du haut).
+`maquette-complete.html` et `maquette-complete-en.html` sont les versions autonomes (un seul fichier chacune).
+
+**Après chaque modification de `index.html`**, lancer :
+```
+python3 outils/generer-maquette-autonome.py
+```
+Ce script regénère la version anglaise à partir du dictionnaire `outils/traduction_en.py`, signale tout texte
+français resté sans traduction, puis produit les deux versions autonomes.
 Tout le contenu provient du site actuel (analysé le 2 novembre 2026).
 
 ---
@@ -100,7 +107,8 @@ Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 - [ ] URL exacte de la page LinkedIn
 - [ ] Brancher le formulaire (Formspree, Netlify Forms, ou formulaire Wix si le site reste sur Wix)
 - [ ] PDF : certificats, descriptif technique des filets, procédures de soumission
-- [ ] Version anglaise
+- [x] Version anglaise de la maquette (`index-en.html`)
+- [ ] Faire relire la traduction anglaise ; la mission anglaise du site actuel ne correspond pas au texte français (traduite fidèlement dans la maquette)
 
 ## Plateforme : Wix (décision prise)
 Le site reste sur Wix. La maquette sert de référence visuelle ; le montage est détaillé dans

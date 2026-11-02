@@ -247,7 +247,9 @@ Si vous adoptez les pages dynamiques (section 4), ajoutez une redirection 301 po
 
 ### Autres points
 - Un seul numéro partout : **418-286-4949**. Vérifier aussi la fiche Google Business Profile.
-- Version anglaise : *Wix Multilingue* (déjà en place sur `/en`). Traduire les nouveaux textes et vérifier les titres SEO en anglais.
+- Version anglaise : *Wix Multilingue* (déjà en place sur `/en`). Les textes anglais de la maquette (`index-en.html`) sont prêts à copier.
+- **Adresses anglaises à corriger :** le site actuel utilise des adresses sans signification (`/en/amem-mw-cb1-2`, `/en/general-5-1`, `/en/services-7`…) ou en français (`/en/decoupe-laser`). Dans Wix Multilingue, traduire chaque adresse : `/en/metal-processing`, `/en/laser-cutting-bending`, `/en/piping-pressure-equipment`, `/en/2d-3d-design`, `/en/safety-guards-nets`, `/en/painting-sandblasting`, `/en/manpower-installation`, `/en/equipment-identification`, `/en/projects`, `/en/careers`, `/en/contact`, `/en/privacy-policy`, avec redirections 301 depuis les anciennes.
+- Les titres et descriptions SEO de la version anglaise actuelle sont restés en français : les traduire.
 - Relier le site à **Google Search Console** et soumettre le plan du site (`/sitemap.xml`).
 
 ---
