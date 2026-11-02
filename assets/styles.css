@@ -462,3 +462,9 @@ body.sheet-open { overflow: hidden; }
 @media (max-width: 960px) { .certs .cert-list { grid-template-columns: 1fr 1fr; justify-content: stretch; } }
 @media (max-width: 640px) { .certs .cert-list { grid-template-columns: 1fr; } .cert-img img { max-width: 72px; max-height: 48px; } }
 .cert-txt small { white-space: nowrap; }
+@media (max-width: 1240px) { .certs .cert-list { grid-template-columns: 1fr 1fr; justify-content: stretch; } }
+@media (max-width: 640px) { .certs .cert-list { grid-template-columns: 1fr; } .cert-txt small { white-space: normal; } }
+.split > * { min-width: 0; }
+.contact-list { grid-template-columns: 100px minmax(0, 1fr); }
+.contact-list dd { overflow-wrap: anywhere; }
+@media (max-width: 360px) { .contact-list { grid-template-columns: 1fr; gap: 4px; } .contact-list dd { margin-bottom: 10px; } }
