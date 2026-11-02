@@ -89,7 +89,9 @@ Des redirections 301 doivent être mises en place depuis les anciennes adresses.
 ## 3. À compléter avant la mise en ligne
 - [ ] Logo officiel (le monogramme « PM+ » est provisoire)
 - [ ] Photos : hero (usine ou chantier), galerie (reprendre les ~50 photos actuelles avec des textes alternatifs descriptifs), logos de clients
-- [ ] Confirmer le numéro principal (4949 ou 4991) et l'effectif à afficher (110+)
+- [x] Numéro principal confirmé : 418-286-4949 (utilisé partout, y compris pour les postes de la direction)
+- [ ] Vérifier que les postes 105 à 110 fonctionnent bien sur le 4949
+- [ ] Confirmer l'effectif à afficher (110+)
 - [ ] URL exacte de la page LinkedIn
 - [ ] Brancher le formulaire (Formspree, Netlify Forms, ou formulaire Wix si le site reste sur Wix)
 - [ ] PDF : certificats, descriptif technique des filets, procédures de soumission
