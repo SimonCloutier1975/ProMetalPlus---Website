@@ -185,6 +185,14 @@ Remplacer les trois formulaires actuels par **un seul**, réutilisé sur Contact
 | Case à cocher | « J'ai pris connaissance des procédures de soumission » (lien PDF) : afficher seulement si le type est « Découpe laser et pliage » (*Règles conditionnelles*) | Selon le type |
 
 - Sous le bouton, en petit : « Pour une urgence, appelez le 418-286-4949 (24/7) ».
+- Case à cocher obligatoire de **consentement (Loi 25)** avec un lien vers la politique de confidentialité.
+
+### Formulaire de candidature (section Carrières)
+Formulaire distinct, comme sur la page Emplois actuelle : Prénom*, Nom*, Téléphone*, Courriel*, « Avez-vous le droit de travailler au Canada ? » (Oui/Non)*, Courte présentation, **CV*** (un fichier PDF/Word, 15 Mo max.), consentement*. Message de confirmation : « Merci, nous avons reçu votre candidature! ». Notifications à la personne responsable des RH.
+L'affichage des offres Jobillico directement sur le site est prévu en **phase 2** ; d'ici là, un bouton mène à la page Jobillico de l'entreprise.
+
+### Politique de confidentialité
+Conserver la page `/politique-de-confidentialité` (texte Loi 25 actuel, révisé dans la maquette) et la lier : pied de page, chaque formulaire (case de consentement). Vérifier le numéro de la personne responsable (418-286-4949, poste 106).
 - *Paramètres → Notifications* : envoyer à `info@prometalplus.com`. Ajouter une règle par type si possible (ex. Candidature → RH, Découpe → estimateur).
 - *Après l'envoi* : message de remerciement ou page « Merci » (utile pour mesurer les conversions dans Google Analytics).
 - Vérifier la taille maximale des fichiers permise par votre forfait Wix.

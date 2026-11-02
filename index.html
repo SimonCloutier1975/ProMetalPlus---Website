@@ -438,25 +438,64 @@
     </section>
 
     <!-- CARRIERES / MAIN D'OEUVRE -->
-    <section class="section section-accent" id="carrieres">
-      <div class="wrap duo">
-        <div class="duo-card">
+    <section class="section section-alt" id="carrieres">
+      <div class="wrap split careers">
+        <div>
           <p class="eyebrow">Carrières</p>
-          <h2>Rejoignez notre équipe</h2>
-          <p>Soudeurs, mécaniciens de chantier, peintres, plieurs, dessinateurs, ingénieurs… Nous cherchons en tout temps des gens compétents et dynamiques.</p>
-          <div class="duo-cta">
-            <a href="https://www.jobillico.com/fr/employeurs/pro-metal-plus-inc/voir-liste-opportunites" class="btn btn-dark" rel="noopener">Voir les postes ouverts</a>
-            <a href="#contact" class="btn btn-outline-dark" data-type="Candidature">Envoyer mon CV</a>
+          <h2>Toujours à la recherche d'employés compétents !</h2>
+          <p>Nous sommes en tout temps à la recherche d'employés compétents et dynamiques pour se joindre à notre équipe de plus de 110 personnes à Deschambault-Grondines.</p>
+          <p>Envoyez-nous votre curriculum vitæ grâce au formulaire en ligne. Merci de l'intérêt que vous portez à notre entreprise !</p>
+          <h3 class="careers-sub">Métiers recherchés</h3>
+          <ul class="pills pills-light"><li>Soudeurs-assembleurs</li><li>Mécaniciens de chantier</li><li>Peintres industriels</li><li>Dessinateurs</li><li>Ingénieurs</li><li>Manœuvres</li></ul>
+          <div class="jobs-box">
+            <h3>Offres d'emploi</h3>
+            <p>Nos postes ouverts sont publiés sur Jobillico.</p>
+            <a href="https://www.jobillico.com/fr/employeurs/pro-metal-plus-inc/voir-liste-opportunites" class="btn btn-line btn-sm" rel="noopener">Voir nos offres sur Jobillico ↗</a>
+            <p class="jobs-note">Phase 2 : les offres s'afficheront directement ici (intégration Jobillico).</p>
           </div>
         </div>
-        <div class="duo-card">
+        <form class="form" id="job-form" novalidate>
+          <h3 class="form-title">Envoyez-nous votre CV</h3>
+          <div class="field-row">
+            <label>Prénom *<input name="prenom" required autocomplete="given-name"></label>
+            <label>Nom *<input name="nom" required autocomplete="family-name"></label>
+          </div>
+          <div class="field-row">
+            <label>Téléphone *<input type="tel" name="tel" required autocomplete="tel"></label>
+            <label>Courriel *<input type="email" name="courriel" required autocomplete="email"></label>
+          </div>
+          <fieldset class="radio-group">
+            <legend>Avez-vous le droit de travailler au Canada ? *</legend>
+            <label><input type="radio" name="droit-travail" value="oui" required> Oui</label>
+            <label><input type="radio" name="droit-travail" value="non"> Non</label>
+          </fieldset>
+          <label>Courte présentation<textarea name="presentation" rows="4" placeholder="Métier, expérience, disponibilités…"></textarea></label>
+          <div class="field">
+            <span class="field-label" id="cv-label">Votre CV *</span>
+            <label class="dropzone" for="cv">
+              <input type="file" id="cv" name="cv" aria-labelledby="cv-label" accept=".pdf,.doc,.docx">
+              <span class="dz-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></span>
+              <span class="dz-main"><strong>Glissez votre fichier ici</strong> ou <span class="dz-link">parcourez</span></span>
+              <span class="dz-sub">PDF ou Word · 15 Mo maximum</span>
+            </label>
+            <ul class="file-list" aria-live="polite"></ul>
+          </div>
+          <label class="consent"><input type="checkbox" name="consentement" required> <span>J'accepte que mes renseignements soient utilisés pour le traitement de ma candidature, conformément à la <a href="#confidentialite" data-privacy>politique de confidentialité</a>. *</span></label>
+          <button type="submit" class="btn btn-primary">Envoyer ma candidature</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- MAIN-D'ŒUVRE -->
+    <section class="section-accent labour">
+      <div class="wrap labour-inner">
+        <div>
           <p class="eyebrow">Location de main-d'œuvre</p>
-          <h2>Besoin de renfort pour un arrêt ?</h2>
-          <p>Mécaniciens de chantier (tuyauterie, machinerie), soudeurs-assembleurs et manœuvres, disponibles en tout temps et mobiles partout au Canada.</p>
-          <div class="duo-cta">
-            <a href="#contact" class="btn btn-dark" data-type="Main-d'œuvre / installation">Réserver une équipe</a>
-          </div>
+          <h2>Vous avez besoin de main-d'œuvre ?</h2>
+          <p>Notre équipe de mécaniciens de chantier certifiés et d'installateurs est disponible en tout temps, partout au Canada.</p>
         </div>
+        <a href="#contact" class="btn btn-dark" data-type="Main-d'œuvre / installation">Réserver une équipe</a>
       </div>
     </section>
 
@@ -492,7 +531,6 @@
               <option>Tuyauterie / appareils sous pression</option>
               <option>Gardes et filets de sécurité</option>
               <option>Main-d'œuvre / installation</option>
-              <option>Candidature</option>
               <option>Autre</option>
             </select>
           </label>
@@ -506,7 +544,7 @@
           </div>
           <label>Votre projet *<textarea name="message" rows="5" required placeholder="Matériau, quantités, échéancier…"></textarea></label>
           <div class="field">
-            <span class="field-label" id="files-label">Plans, CV ou fichiers</span>
+            <span class="field-label" id="files-label">Plans ou fichiers</span>
             <label class="dropzone" for="fichiers">
               <input type="file" id="fichiers" name="fichiers" multiple aria-labelledby="files-label" accept=".pdf,.dwg,.dxf,.step,.stp,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx">
               <span class="dz-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></span>
@@ -515,6 +553,7 @@
             </label>
             <ul class="file-list" aria-live="polite"></ul>
           </div>
+          <label class="consent"><input type="checkbox" name="consentement" required> <span>J'accepte que mes renseignements soient utilisés pour répondre à ma demande, conformément à la <a href="#confidentialite" data-privacy>politique de confidentialité</a>. *</span></label>
           <p class="hint">Pour une urgence, appelez plutôt le <a href="tel:+14182864949">418-286-4949</a> (24/7).</p>
           <button type="submit" class="btn btn-primary">Envoyer la demande</button>
           <p class="form-status" role="status" aria-live="polite"></p>
@@ -541,14 +580,14 @@
         <a href="#entreprise">À propos</a>
         <a href="#realisations">Réalisations</a>
         <a href="#carrieres">Carrières</a>
-        <a href="https://www.prometalplus.com/politique-de-confidentialité">Confidentialité</a>
+        <a href="#confidentialite" data-privacy>Politique de confidentialité</a>
       </nav>
       <div>
         <h3>Urgence 24/7</h3>
         <a href="tel:+14182864949" class="footer-phone">418-286-4949</a>
         <a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a>
       </div>
-      <p class="copy">© <span id="year">2026</span> Pro-Métal Plus inc. Tous droits réservés.</p>
+      <p class="copy">© <span id="year">2026</span> Pro-Métal Plus inc. Tous droits réservés. · <a href="#confidentialite" data-privacy>Politique de confidentialité</a></p>
     </div>
   </footer>
 
@@ -724,6 +763,63 @@
         <a href="#contact" class="btn btn-primary" data-type="Autre">Demander une soumission</a>
         <a href="tel:+14182864949" class="btn btn-line">Appeler le 418-286-4949</a>
       </aside>
+    </div>
+  </dialog>
+
+  <dialog class="sheet policy" id="confidentialite" aria-labelledby="t-confidentialite">
+    <button class="sheet-close" type="button" aria-label="Fermer">×</button>
+    <div class="policy-body">
+      <p class="eyebrow">Loi 25 · Protection des renseignements personnels</p>
+      <h2 id="t-confidentialite">Politique de confidentialité</h2>
+      <p>L'adoption de la Loi 25, la <em>Loi modernisant des dispositions législatives en matière de protection des renseignements personnels</em>, exige que toutes les organisations soient transparentes et responsables dans le traitement des renseignements personnels, et qu'elles s'assurent que les renseignements soient recueillis, utilisés, divulgués, conservés, protégés et détruits de manière appropriée et respectueuse de la vie privée. Les nouvelles obligations sont entrées en vigueur progressivement de septembre 2022 à septembre 2024.</p>
+      <p>Le but de la modernisation de cette loi est de rehausser la protection des renseignements personnels détenus par les entreprises et d'augmenter le niveau de confiance envers les organisations, tout en tenant compte des nouvelles technologies en constante évolution.</p>
+      <p>L'objectif de cette politique est d'apporter de la transparence sur les méthodes de protection que Pro-Métal Plus utilise pour ses employés, ses clients et ses fournisseurs, afin de mieux gérer le traitement des renseignements personnels.</p>
+
+      <h3>Renseignements personnels</h3>
+      <p>Tout renseignement qui permet d'identifier une personne physique directement ou indirectement. Pro-Métal Plus recueille, utilise et communique des renseignements personnels concernant les membres de son équipe afin de se conformer aux lois et aux normes professionnelles, d'administrer des outils de gestion du rendement, d'administrer, de gérer et de faire respecter les politiques de Pro-Métal Plus et ses relations avec ses employés, et d'établir et de gérer les liens d'emploi.</p>
+
+      <h3>Mesures de sécurité</h3>
+      <p>L'équipe de Pro-Métal Plus s'engage à protéger les renseignements personnels de ses employés, de son équipe et de ses fournisseurs. Afin de respecter les obligations actuelles en matière de protection des renseignements personnels, Pro-Métal Plus a mis en place plusieurs mesures.</p>
+
+      <h3>Personne responsable de la protection des renseignements personnels</h3>
+      <p>Cette personne doit non seulement connaître tous les renseignements personnels détenus par l'organisation, mais également les protéger adéquatement, signaler toute fuite potentielle de données personnelles et en aviser la Commission d'accès à l'information (CAI).</p>
+      <div class="policy-contact">
+        <strong>Pascale Cloutier</strong><span>V.-P. Finances</span>
+        <a href="mailto:p.cloutier@prometalplus.com">p.cloutier@prometalplus.com</a>
+        <span>418-286-4949, poste 106</span>
+      </div>
+
+      <h3>Renseignements recueillis et comment</h3>
+      <p>Nous recevons, recueillons et conservons toute information que vous saisissez sur notre site Web ou que vous nous fournissez de toute autre manière.</p>
+      <p>Si vous communiquez avec nous, si vous envoyez le formulaire disponible sur le site ou si vous vous renseignez sur nos produits ou services, nous recueillons votre nom, le nom de votre entreprise (le cas échéant), votre adresse courriel et votre numéro de téléphone.</p>
+      <p>Lorsque vous envoyez votre curriculum vitæ (CV) en ligne sur www.prometalplus.com, nous vous demandons également votre numéro de téléphone, en plus des informations obligatoires. Les informations personnelles supplémentaires que vous incluez dans votre CV servent à décrire vos compétences, vos expériences et vos préférences d'emploi.</p>
+      <p>Lorsque vous effectuez une transaction sur notre site Web, nous recueillons les informations personnelles que vous nous donnez, telles que votre nom, votre adresse et votre adresse courriel. Vos informations personnelles ne seront utilisées que pour les raisons précises mentionnées ci-dessus.</p>
+
+      <h3>Pourquoi recueillons-nous ces renseignements ?</h3>
+      <ul>
+        <li>Fournir et exploiter nos services ;</li>
+        <li>Offrir à nos utilisateurs une assistance et un soutien technique continus ;</li>
+        <li>Pouvoir communiquer avec nos visiteurs et utilisateurs pour des avis généraux ou personnalisés relatifs au service et des messages promotionnels ;</li>
+        <li>Nous conformer aux lois et règlements applicables.</li>
+      </ul>
+
+      <h3>Stockage des renseignements</h3>
+      <p>Notre site est hébergé sur la plateforme Wix.com, qui nous fournit la plateforme en ligne nous permettant de vous offrir nos produits et services. Vos données peuvent être stockées par le biais du stockage de données, des bases de données et des applications générales de Wix.com, sur des serveurs sécurisés protégés par un pare-feu.</p>
+
+      <h3>Durée de conservation</h3>
+      <p>Les renseignements concernant les employés de l'entreprise sont conservés sept (7) ans après la fin de l'emploi. Au-delà de ce délai, les données sont supprimées. La durée de conservation des renseignements concernant les clients varie selon le type de renseignement personnel. Pour plus de détails, se référer à l'inventaire complet des renseignements personnels détenus.</p>
+
+      <h3>Destruction des renseignements</h3>
+      <ul>
+        <li>Les renseignements personnels sur papier sont entièrement déchiquetés.</li>
+        <li>Les renseignements personnels numériques sont entièrement supprimés des appareils (ordinateurs, téléphones, tablettes, disques durs externes), des serveurs et des outils infonuagiques.</li>
+        <li>Un calendrier de destruction est établi selon la durée de conservation de chaque catégorie de renseignements, et les dates de destruction prévues sont documentées.</li>
+        <li>La destruction est réalisée de manière à ce que les renseignements ne puissent pas être récupérés ou reconstitués.</li>
+      </ul>
+
+      <h3>Gestion des incidents de confidentialité</h3>
+      <p>La Loi 25, tout comme la loi fédérale canadienne, oblige les entreprises à tenir un registre des incidents de confidentialité afin de documenter tous les événements affectant ou pouvant affecter la confidentialité et la sécurité de vos données.</p>
+      <p>Pro-Métal Plus a mis en place un registre des incidents ainsi qu'un formulaire à remplir si vous croyez que vos renseignements personnels ont été compromis. À la suite d'un incident de confidentialité, Pro-Métal Plus s'engage à mettre en place des mesures adaptées pour éviter que de nouveaux incidents de même nature se reproduisent. Les incidents présentant un risque de préjudice sérieux sont signalés à la CAI ainsi qu'aux personnes concernées.</p>
     </div>
   </dialog>
 

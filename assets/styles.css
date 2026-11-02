@@ -468,3 +468,43 @@ body.sheet-open { overflow: hidden; }
 .contact-list { grid-template-columns: 100px minmax(0, 1fr); }
 .contact-list dd { overflow-wrap: anywhere; }
 @media (max-width: 360px) { .contact-list { grid-template-columns: 1fr; gap: 4px; } .contact-list dd { margin-bottom: 10px; } }
+
+/* ---------- Carrières ---------- */
+.careers { align-items: start; }
+.careers > div > p:not(.eyebrow) { color: var(--slate-600); }
+.careers-sub { margin-top: 28px; font-size: 1.2rem; }
+.pills-light li { background: #fff; color: var(--brand); border: 1px solid var(--slate-200); }
+.jobs-box { margin-top: 28px; padding: 24px; background: #fff; border: 1px solid var(--slate-200); border-left: 4px solid var(--brand); border-radius: 0 var(--radius) var(--radius) 0; }
+.jobs-box h3 { font-size: 1.25rem; margin-bottom: 6px; }
+.jobs-box p { color: var(--slate-600); font-size: .92rem; margin-bottom: 12px; }
+.jobs-box .jobs-note { margin: 14px 0 0; font-size: .8rem; color: var(--slate-400); }
+#carrieres .form { background: #fff; box-shadow: var(--shadow); }
+.form-title { font-size: 1.5rem; margin: 0; }
+.radio-group { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; }
+.radio-group legend { width: 100%; padding: 0; margin-bottom: 8px; font-weight: 600; font-size: .85rem; }
+.form .radio-group label { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: .95rem; cursor: pointer; }
+.form .radio-group input, .form .consent input { width: 18px; height: 18px; margin: 0; accent-color: var(--brand); flex: none; }
+.form .consent { display: flex; align-items: flex-start; gap: 10px; font-weight: 400; font-size: .85rem; color: var(--slate-600); line-height: 1.45; }
+.form .consent input { margin-top: 2px; }
+.consent a { color: var(--brand); font-weight: 600; }
+.dropzone.has-file { border-style: solid; border-color: var(--brand); }
+
+/* Bande main-d'œuvre */
+.labour { padding: 56px 0; }
+.labour-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px 48px; flex-wrap: wrap; }
+.labour h2 { margin-bottom: 8px; }
+.labour p:not(.eyebrow) { margin: 0; color: rgba(255,255,255,.88); max-width: 640px; }
+
+/* ---------- Politique de confidentialité ---------- */
+.policy { width: min(820px, calc(100% - 32px)); }
+.policy-body { padding: 48px 48px 40px; }
+.policy-body h3 { margin: 28px 0 8px; font-size: 1.3rem; color: var(--brand); }
+.policy-body p, .policy-body li { color: var(--slate-600); font-size: .95rem; }
+.policy-body ul { padding-left: 20px; margin: 0 0 1rem; }
+.policy-body li { margin-bottom: 6px; }
+.policy-contact { display: grid; gap: 2px; padding: 16px 20px; background: var(--slate-100); border-left: 3px solid var(--brand); border-radius: 0 8px 8px 0; font-size: .95rem; }
+.policy-contact span { color: var(--slate-600); }
+.policy-contact a { color: var(--brand); font-weight: 600; }
+.copy a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) { .policy-body { padding: 56px 20px 32px; } }
+@media (max-width: 760px) { .policy { width: 100%; } }

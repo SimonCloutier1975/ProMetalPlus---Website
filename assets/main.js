@@ -120,18 +120,22 @@ document.querySelectorAll('[data-type]').forEach((btn) =>
   btn.addEventListener('click', () => { typeSelect.value = btn.dataset.type; })
 );
 
-// Fiches de services (fenêtres de détail)
-const openSheet = (slug) => {
-  const d = document.getElementById('service-' + slug);
+// Fenêtres : fiches de services et politique de confidentialité
+const openDialog = (d, hash) => {
   if (!d || d.open) return;
   document.querySelectorAll('dialog.sheet[open]').forEach((o) => o.close());
   if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
   d.scrollTop = 0;
   document.body.classList.add('sheet-open');
-  try { history.replaceState(null, '', '#service-' + slug); } catch (_) {}
+  try { history.replaceState(null, '', hash); } catch (_) {}
 };
+const openSheet = (slug) => openDialog(document.getElementById('service-' + slug), '#service-' + slug);
+const openPrivacy = () => openDialog(document.getElementById('confidentialite'), '#confidentialite');
 document.querySelectorAll('[data-service]').forEach((el) =>
   el.addEventListener('click', (e) => { e.preventDefault(); openSheet(el.dataset.service); })
+);
+document.querySelectorAll('[data-privacy]').forEach((el) =>
+  el.addEventListener('click', (e) => { e.preventDefault(); openPrivacy(); })
 );
 document.querySelectorAll('dialog.sheet').forEach((d) => {
   const close = () => (typeof d.close === 'function' ? d.close() : d.removeAttribute('open'));
@@ -142,7 +146,8 @@ document.querySelectorAll('dialog.sheet').forEach((d) => {
     if (location.hash === '#' + d.id) { try { history.replaceState(null, '', location.pathname + location.search); } catch (_) {} }
   });
   // « Demander une soumission » : fermer la fiche puis aller au formulaire
-  d.querySelector('a[href="#contact"]').addEventListener('click', (e) => {
+  const cta = d.querySelector('a[href="#contact"]');
+  if (cta) cta.addEventListener('click', (e) => {
     e.preventDefault();
     close();
     document.getElementById('contact').scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -150,45 +155,50 @@ document.querySelectorAll('dialog.sheet').forEach((d) => {
   });
 });
 if (location.hash.startsWith('#service-')) openSheet(location.hash.slice(9));
+if (location.hash === '#confidentialite') openPrivacy();
 
-// Zone de dépôt de fichiers
-const fileInput = document.getElementById('fichiers');
-const dropzone = document.querySelector('.dropzone');
-const fileList = document.querySelector('.file-list');
+// Zones de dépôt de fichiers (une par formulaire)
 const MAX = 15 * 1024 * 1024;
 const fmt = (b) => (b < 1024 * 1024 ? Math.max(1, Math.round(b / 1024)) + ' Ko' : (b / 1024 / 1024).toFixed(1).replace('.', ',') + ' Mo');
-let files = [];
-const syncInput = () => {
-  try { const dt = new DataTransfer(); files.forEach((f) => dt.items.add(f)); fileInput.files = dt.files; } catch (_) {}
+const setupDropzone = (field) => {
+  const input = field.querySelector('input[type="file"]');
+  const zone = field.querySelector('.dropzone');
+  const list = field.querySelector('.file-list');
+  const multiple = input.multiple;
+  let files = [];
+  const sync = () => { try { const dt = new DataTransfer(); files.forEach((f) => dt.items.add(f)); input.files = dt.files; } catch (_) {} };
+  const total = () => files.reduce((n, f) => n + f.size, 0);
+  const render = () => {
+    list.innerHTML = '';
+    files.forEach((f, i) => {
+      const li = document.createElement('li');
+      li.innerHTML = '<span class="file-ext"></span><span class="file-name"></span><span class="file-size"></span><button type="button" class="file-remove" aria-label="Retirer le fichier">×</button>';
+      li.querySelector('.file-ext').textContent = (f.name.split('.').pop() || '').slice(0, 4);
+      li.querySelector('.file-name').textContent = f.name;
+      li.querySelector('.file-size').textContent = fmt(f.size);
+      li.querySelector('.file-remove').addEventListener('click', () => { files.splice(i, 1); sync(); render(); });
+      list.appendChild(li);
+    });
+    if (total() > MAX) {
+      const li = document.createElement('li');
+      li.className = 'file-error';
+      li.textContent = 'Total de ' + fmt(total()) + ' : la limite est de 15 Mo.';
+      list.appendChild(li);
+    }
+    zone.classList.toggle('has-file', !multiple && files.length > 0);
+  };
+  const add = (fl) => {
+    const incoming = [...fl];
+    if (!multiple) files = incoming.slice(0, 1);
+    else incoming.forEach((f) => { if (!files.some((g) => g.name === f.name && g.size === f.size)) files.push(f); });
+    sync(); render();
+  };
+  input.addEventListener('change', () => add(input.files));
+  ['dragenter', 'dragover'].forEach((ev) => zone.addEventListener(ev, (e) => { e.preventDefault(); zone.classList.add('is-over'); }));
+  ['dragleave', 'drop'].forEach((ev) => zone.addEventListener(ev, (e) => { e.preventDefault(); zone.classList.remove('is-over'); }));
+  zone.addEventListener('drop', (e) => { if (e.dataTransfer && e.dataTransfer.files.length) add(e.dataTransfer.files); });
+  return { count: () => files.length, tooBig: () => total() > MAX, reset: () => { files = []; sync(); render(); } };
 };
-const renderFiles = () => {
-  fileList.innerHTML = '';
-  const total = files.reduce((n, f) => n + f.size, 0);
-  files.forEach((f, i) => {
-    const li = document.createElement('li');
-    const ext = (f.name.split('.').pop() || '').slice(0, 4);
-    li.innerHTML = '<span class="file-ext"></span><span class="file-name"></span><span class="file-size"></span><button type="button" class="file-remove" aria-label="Retirer le fichier">×</button>';
-    li.querySelector('.file-ext').textContent = ext;
-    li.querySelector('.file-name').textContent = f.name;
-    li.querySelector('.file-size').textContent = fmt(f.size);
-    li.querySelector('.file-remove').addEventListener('click', () => { files.splice(i, 1); syncInput(); renderFiles(); });
-    fileList.appendChild(li);
-  });
-  if (total > MAX) {
-    const li = document.createElement('li');
-    li.className = 'file-error';
-    li.textContent = 'Total de ' + fmt(total) + ' : la limite est de 15 Mo. Retirez un fichier ou écrivez-nous à info@prometalplus.com.';
-    fileList.appendChild(li);
-  }
-};
-const addFiles = (list) => {
-  [...list].forEach((f) => { if (!files.some((g) => g.name === f.name && g.size === f.size)) files.push(f); });
-  syncInput(); renderFiles();
-};
-fileInput.addEventListener('change', () => addFiles(fileInput.files));
-['dragenter', 'dragover'].forEach((ev) => dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.add('is-over'); }));
-['dragleave', 'drop'].forEach((ev) => dropzone.addEventListener(ev, (e) => { e.preventDefault(); dropzone.classList.remove('is-over'); }));
-dropzone.addEventListener('drop', (e) => { if (e.dataTransfer && e.dataTransfer.files.length) addFiles(e.dataTransfer.files); });
 
 // Apparition au défilement
 if ('IntersectionObserver' in window) {
@@ -197,30 +207,31 @@ if ('IntersectionObserver' in window) {
       if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.card, .case, .tile, .logos li, .split > *, .duo-card').forEach((el) => {
+  document.querySelectorAll('.card, .case, .tile, .logos li, .split > *, .about-card').forEach((el) => {
     el.classList.add('reveal');
     io.observe(el);
   });
 }
 
-// Formulaire (démo : à brancher sur un service d'envoi, ex. Formspree, Netlify Forms ou script serveur)
-const form = document.getElementById('quote-form');
-const status = form.querySelector('.form-status');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  if (!form.checkValidity()) {
-    status.textContent = 'Veuillez remplir les champs obligatoires (*).';
-    status.className = 'form-status err';
-    form.reportValidity();
-    return;
-  }
-  if (files.reduce((n, f) => n + f.size, 0) > MAX) {
-    status.textContent = 'Les fichiers dépassent 15 Mo au total.';
-    status.className = 'form-status err';
-    return;
-  }
-  status.textContent = 'Merci! Votre demande a bien été reçue. Nous vous répondrons sous peu.';
-  status.className = 'form-status ok';
-  form.reset();
-  files = []; renderFiles();
-});
+// Formulaires (démo : à brancher sur un service d'envoi, ex. Wix Forms, Formspree ou script serveur)
+const setupForm = (form, { success, needsFile = false }) => {
+  const status = form.querySelector('.form-status');
+  const fieldWithFiles = form.querySelector('.dropzone') && form.querySelector('.dropzone').closest('.field');
+  const dz = fieldWithFiles ? setupDropzone(fieldWithFiles) : null;
+  const fail = (msg) => { status.textContent = msg; status.className = 'form-status err'; };
+  const clearError = () => { if (status.classList.contains('err')) { status.textContent = ''; status.className = 'form-status'; } };
+  form.addEventListener('input', clearError);
+  form.addEventListener('change', clearError);
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) { fail('Veuillez remplir les champs obligatoires (*).'); form.reportValidity(); return; }
+    if (needsFile && dz && dz.count() === 0) { fail('Veuillez joindre votre CV.'); return; }
+    if (dz && dz.tooBig()) { fail('Les fichiers dépassent 15 Mo au total.'); return; }
+    status.textContent = success;
+    status.className = 'form-status ok';
+    form.reset();
+    if (dz) dz.reset();
+  });
+};
+setupForm(document.getElementById('quote-form'), { success: 'Merci! Votre demande a bien été reçue. Nous vous répondrons sous peu.' });
+setupForm(document.getElementById('job-form'), { success: 'Merci, nous avons reçu votre candidature!', needsFile: true });
